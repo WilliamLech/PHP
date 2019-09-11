@@ -1,10 +1,33 @@
-body{
+.grid-container {
+    display: grid;
+    height: auto;
+    width: auto;
+    grid-template-areas:
+            'header header header header header login'
+            'main main main main main main'
+            'footer footer footer footer footer footer';
+    grid-gap: 10px;
+    padding: 10px;
+}
 
+.top{
+    grid-area: header;
+    background-color: #2ecc71;
+}
+
+.login{
+    grid-area: login;
 }
 
 .main{
-    width: 90vw;
+    grid-area: main;
     height: 70vh;
-    background-color: darkred;
-    color: aliceblue;
+    padding: 10px;
+    background-color: #ecf0f1;
+}
+
+.footer{
+    grid-area: footer;
+    height: 10vh;
+    background-color: #27ae60;
 }

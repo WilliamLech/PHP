@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Coucou</title>
+    <title>Page d'accueil</title>
 </head>
 <body>
-
+<?php
+echo 'vjb';
+?>
 </body>
 </html>

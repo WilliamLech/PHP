@@ -1,3 +1,4 @@
+
 <?php
 /*
 $user = "i180367";
@@ -22,32 +23,42 @@ if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {
         header("Location: Connecte.php");
         die();
     } else {
-        $message = "Identification incorrecte";
+        $message= "Identifiant ou mot de passe incorrect, veuillez réessayer.";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <link type="text/css" rel="stylesheet" href="css.css">
     <meta charset="UTF-8">
     <title>Page d'accueil</title>
 </head>
 <body>
-<form method="post" action="Connexion.php">
-    Login <label>
-        <input type="text" name="config_user" size="10">
-    </label><br>
-    Password <label>
-        <input type="text" name="config_pass" size="10">
-    </label><br>
-    <input type="submit" value="Valider">
-</form>
+<div class="grid-container">
+    <div class="top"></div>
 
-<?php
-    echo $message;
-?>
+    <div class="login">
+        <form method="post" action="Connexion.php">
+        Nom d'utilisateur : <label>
+                <input type="text" name="config_user" size="20">
+            </label><br>
+        Mot de passe : <label>
+                <input type="text" name="config_pass" size="20">
+            </label><br>
+        <input type="submit" value="Valider">
+        </form>
+        <?php
+        echo $message;
+        ?>
+    </div>
+
+    <div class="main">Salut !</div>
+
+    <div class="footer"></div>
+</div>
 
 </body>
 </html>

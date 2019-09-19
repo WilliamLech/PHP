@@ -1,5 +1,6 @@
 
 <?php
+<<<<<<< HEAD
 include_once("db_info.php");
 $sql = "SELECT nameUser,pwUser from USER";
 $dbh = new PDO("$server:host=$host;dbname=$base", $user, $pass);
@@ -20,6 +21,8 @@ try {
     die();
 }
 
+=======
+>>>>>>> 1181d373ca431edc71ed0eec5f4e3c13b4fce596
 
 
 

@@ -1,0 +1,35 @@
+.grid-container {
+    display: grid;
+    height: auto;
+    width: auto;
+    grid-template-areas:
+            'header header header header header header'
+            'profil main main main main main'
+            'footer footer footer footer footer footer';
+    grid-gap: 1vh;
+    grid-auto-rows: 15vh 71vh 10vh;
+}
+
+.header{
+    grid-area: header;
+    background-color: #2ecc71;
+}
+
+
+.main{
+    grid-area: main;
+    padding: 10px;
+    background-color: #C0C0C0;
+}
+
+.profil{
+    grid-area: profil;
+    padding: 10px;
+    background-color: #808080;
+}
+
+.footer {
+    grid-area: footer;
+    height: 10vh;
+    background-color: #27ae60;
+}

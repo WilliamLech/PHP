@@ -16,8 +16,6 @@ try {
     die();
 }
 */
-
-
 if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {
     if ($_POST["config_user"] == "admin" && $_POST["config_pass"] == "totoro") {
         header("Location: Connecte.php");

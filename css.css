@@ -7,7 +7,7 @@
             'main main main main main main'
             'footer footer footer footer footer footer';
     grid-gap: 10px;
-    padding: 10px;
+    grid-auto-rows: 15vh 71vh 10vh;
 }
 
 .top{
@@ -21,13 +21,11 @@
 
 .main{
     grid-area: main;
-    height: 67vh;
     padding: 10px;
     background-color: #ecf0f1;
 }
 
 .footer{
     grid-area: footer;
-    height: 10vh;
     background-color: #27ae60;
 }

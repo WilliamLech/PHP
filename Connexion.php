@@ -3,7 +3,7 @@
 /*
 $user = "i180367";
 $pass = "vmb89zn";
-$host = "http://la-myweb.univ-lemans.fr/phpMyAdmin/";
+$host = "http://la-myweb.univ-lemans.fr/phpMyAdmin/"; (remplacer par Localhost après déploiement, port 3308)
 $base = "INF2_i180367";
 try {
     $dbh = new PDO("mysql:host=$host;dbname=$base", $user, $pass);
@@ -47,6 +47,9 @@ if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {
                 <input type="text" name="config_pass" size="20">
             </label><br>
         <input type="submit" value="Valider">
+        </form>
+        <form method="post" action=""Inscription.php>
+            <input type="submit" value="S'inscrire">
         </form>
         <?php
         echo $message;

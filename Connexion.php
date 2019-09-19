@@ -19,8 +19,8 @@ try {
     print "Erreur !: " . $e->getMessage() . "<br/>";
     die();
 }
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -34,14 +34,12 @@ try {
     <div class="top"></div>
 
     <div class="login">
-        <form method="post" action="Connexion.php">
-        Nom d'utilisateur : <label>
-                <input type="text" name="config_user" size="20">
-            </label><br>
-        Mot de passe : <label>
-                <input type="text" name="config_pass" size="20">
-            </label><br>
-        <input type="submit" value="Valider">
+        <form method="post" action="Connecte.php">
+            <form method="post" action="Connexion.php">
+                Nom d'utilisateur : <label><input type="text" name="config_user" size="20"></label><br>
+                Mot de passe : <label><input type="text" name="config_pass" size="20"></label><br>
+                <input type="submit" value="Valider">
+             </form>
         </form>
         <form method="post" action="Inscription.php">
             <input type="submit" value="S'inscrire">

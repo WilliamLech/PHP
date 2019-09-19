@@ -8,7 +8,12 @@
 <body>
 <div class="grid-container">
     <div class="header"></div>
-    <div class="profil"></div>
+    <div class="profil">
+        <?php
+            $user = $_POST["config_user"];
+            echo("Name : ".$user);
+        ?>
+    </div>
     <div class="main"></div>
     <div class="footer"></div>
 </div>

@@ -1,31 +1,27 @@
 
 <?php
-/*
-$user = "i180367";
-$pass = "vmb89zn";
-$host = "http://la-myweb.univ-lemans.fr/phpMyAdmin/";
-$base = "INF2_i180367";
+include_once("db_info.php");
+$sql = "SELECT nameUser,pwUser from USER";
+$dbh = new PDO("$server:host=$host;dbname=$base", $user, $pass);
 try {
-    $dbh = new PDO("mysql:host=$host;dbname=$base", $user, $pass);
-    foreach($dbh->query('SELECT * from USER') as $row) {
-        print_r($row);
+    foreach($dbh->query($sql) as $ligne) {
+        if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {
+            if ($_POST["config_user"] == $ligne['nameUser'] && $_POST["config_pass"] == $ligne['pwUser']) {
+                header("Location: Connecte.php");
+                die();
+            } else {
+                $message= "Identifiant ou mot de passe incorrect, veuillez réessayer.";
+            }
+        }
     }
     $dbh = null;
 } catch (PDOException $e) {
     print "Erreur !: " . $e->getMessage() . "<br/>";
     die();
 }
-*/
 
 
-if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {
-    if ($_POST["config_user"] == "admin" && $_POST["config_pass"] == "totoro") {
-        header("Location: Connecte.php");
-        die();
-    } else {
-        $message= "Identifiant ou mot de passe incorrect, veuillez réessayer.";
-    }
-}
+
 
 ?>
 
@@ -49,6 +45,9 @@ if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {
                 <input type="text" name="config_pass" size="20">
             </label><br>
         <input type="submit" value="Valider">
+        </form>
+        <form method="post" action="Inscription.php">
+            <input type="submit" value="S'inscrire">
         </form>
         <?php
         echo $message;

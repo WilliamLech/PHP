@@ -8,6 +8,7 @@ try{
             $pw = $_POST["psw"];
             $sql = "INSERT INTO `USER`(`nameUser`, `pwUser`) VALUES ('$id','$pw') ";
             $dbh->exec($sql);
+            header("Location: Connexion.php");
         }
         else{
             $msg="erreur";

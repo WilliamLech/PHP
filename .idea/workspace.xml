@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bf7825c-f7ea-4da1-bb76-b8a6b4893335" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/Inscription.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/db_info.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+>>>>>>> 3c9eecd68c2b8bffac161b5b6fc660607e907c4c
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connecte.php" beforeDir="false" afterPath="$PROJECT_DIR$/Connecte.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,6 +25,13 @@
       <executable />
     </execution>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -27,7 +39,8 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="F:/INFO2/PHP/Tdm2" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -53,9 +66,28 @@
       <updated>1568208806240</updated>
       <workItem from="1568208809638" duration="2973000" />
       <workItem from="1568276761617" duration="1330000" />
+<<<<<<< HEAD
       <workItem from="1568279013756" duration="1156000" />
       <workItem from="1568884652677" duration="4597000" />
+=======
+      <workItem from="1568279013756" duration="1340000" />
+      <workItem from="1568884663719" duration="4459000" />
+      <workItem from="1568904465929" duration="232000" />
+      <workItem from="1568904784254" duration="1733000" />
+      <workItem from="1568906541518" duration="3571000" />
+      <workItem from="1568960179989" duration="462000" />
+      <workItem from="1568962392545" duration="104000" />
+      <workItem from="1568990258288" duration="883000" />
     </task>
+    <task id="LOCAL-00001" summary="&quot;mise a joour&quot;">
+      <created>1568905880792</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1568905880793</updated>
+>>>>>>> 3c9eecd68c2b8bffac161b5b6fc660607e907c4c
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -73,5 +105,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="&quot;mise a joour&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;mise a joour&quot;" />
   </component>
 </project>

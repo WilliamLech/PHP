@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8bf7825c-f7ea-4da1-bb76-b8a6b4893335" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connecte.php" beforeDir="false" afterPath="$PROJECT_DIR$/Connecte.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cssRecap.css" beforeDir="false" afterPath="$PROJECT_DIR$/cssRecap.css" afterDir="false" />
-    </list>
+    <list default="true" id="8bf7825c-f7ea-4da1-bb76-b8a6b4893335" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

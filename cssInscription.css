@@ -1,0 +1,16 @@
+body {
+    background-color: #ecf0f1;
+}
+
+.inscription {
+    position: absolute;
+    top: 25%;
+    left: 33%;
+    width: 25%;
+    background-color: #2ecc71;
+    border-radius: 50px;
+    color: #FFFFFF;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 10px 10px #27ae60;
+}

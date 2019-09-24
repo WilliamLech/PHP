@@ -1,3 +1,7 @@
+body {
+    background-color: #ecf0f1;
+}
+
 .grid-container {
     display: grid;
     height: auto;
@@ -6,8 +10,8 @@
             'header header header header header login'
             'main main main main main main'
             'footer footer footer footer footer footer';
-    grid-gap: 10px;
-    grid-auto-rows: 15vh 71vh 10vh;
+    grid-gap: 1vh;
+    grid-template-rows: 15vh 70.5vh 10vh;
 }
 
 .top{

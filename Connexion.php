@@ -1,5 +1,6 @@
 <?php
 include_once("db_info.php");
+
 if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {
     $dbh = new PDO("$server:host=$host;dbname=$base", $user, $pass);
     $pass = $_POST["config_pass"];

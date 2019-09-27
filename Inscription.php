@@ -10,6 +10,7 @@ try{
             $tel = $_POST["tel"];
             $sql = "INSERT INTO `USER`(`nameUser`, `pwUser`, `mailUser`, `telUser`) VALUES ('$id','$pw', '$mail', '$tel') ";
             $dbh->exec($sql);
+            header("Location: Connexion.php");
         }
         else{
             $msg="<br />"."Erreur : veuillez renseigner tous les champs.";

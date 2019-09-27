@@ -10,6 +10,7 @@ try{
             $tel = $_POST["tel"];
             $sql = "INSERT INTO `USER`(`nameUser`, `pwUser`, `mailUser`, `telUser`) VALUES ('$id','$pw', '$mail', '$tel') ";
             $dbh->exec($sql);
+            header("Location: Connexion.php");
         }
         else{
             $msg="<br />"."Erreur : veuillez renseigner tous les champs.";
@@ -35,11 +36,11 @@ catch(PDOException $e){
 <a href="http://la-myweb.univ-lemans.fr/~i181795/Projet_php/git_depot/Connexion.php" class="bouton">Retour</a>
     <div class="inscription">
         <form method="post" action="Inscription.php">
-            Nom utilisateur<br /><input type="text" name="userName"><br /><br />
-            Mot de passe<br /><input type="password" name="psw"><br /><br />
-            E-mail<br /><input type="email" name="mail"><br /><br />
-            Tel.<br /><input type="tel" name="tel"><br /><br />
-            <input type="submit" value="S'inscrire"><br />
+            Nom utilisateur<br/><input type="text" name="userName"><br/><br/>
+            Mot de passe<br/><input type="password" name="psw"><br/><br/>
+            E-mail<br/><input type="email" name="mail"><br/><br/>
+            Tel.<br/><input type="tel" name="tel"><br/><br/>
+            <input type="submit" value="S'inscrire"><br/>
             <?php
             echo $msg;
             ?>

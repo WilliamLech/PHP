@@ -1,0 +1,35 @@
+.grid-container {
+    display: grid;
+    height: auto;
+    width: auto;
+    grid-template-areas:
+            'categorie categorie categorie categorie categorie ajout'
+            'fiches fiches fiches fiches fiches fiches'
+            'footer footer footer footer footer footer';
+    grid-gap: 1vh;
+    grid-auto-rows: 15vh 71vh 10vh;
+}
+
+.categorie{
+    padding-top: 3vh;
+    padding-left: 5vh;
+    grid-area: categorie;
+    background-color: #2ecc71;
+}
+
+.ajout{
+    grid-area: ajout;
+    padding-top: 3vh;
+    padding-left: 3vh;
+    background-color: #808080;
+}
+
+.fiches{
+    grid-area: fiches;
+    background-color: #C0C0C0;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: #27ae60;
+}

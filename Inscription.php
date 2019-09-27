@@ -34,11 +34,11 @@ catch(PDOException $e){
 <body>
     <div class="inscription">
         <form method="post" action="Inscription.php">
-            Nom utilisateur<br /><input type="text" name="userName"><br /><br />
-            Mot de passe<br /><input type="password" name="psw"><br /><br />
-            E-mail<br /><input type="email" name="mail"><br /><br />
-            Tel.<br /><input type="tel" name="tel"><br /><br />
-            <input type="submit" value="S'inscrire"><br />
+            Nom utilisateur<br/><input type="text" name="userName"><br/><br/>
+            Mot de passe<br/><input type="password" name="psw"><br/><br/>
+            E-mail<br/><input type="email" name="mail"><br/><br/>
+            Tel.<br/><input type="tel" name="tel"><br/><br/>
+            <input type="submit" value="S'inscrire"><br/>
             <?php
             echo $msg;
             ?>

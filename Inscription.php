@@ -32,6 +32,7 @@ catch(PDOException $e){
     <title>Inscription</title>
 </head>
 <body>
+<a href="http://la-myweb.univ-lemans.fr/~i181795/Projet_php/git_depot/Connexion.php" class="bouton">Retour</a>
     <div class="inscription">
         <form method="post" action="Inscription.php">
             Nom utilisateur<br /><input type="text" name="userName"><br /><br />

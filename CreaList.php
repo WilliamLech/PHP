@@ -22,8 +22,8 @@ if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {
 <header>Création List</header>
 <body>
 <form method="post" action="CreaList.php">
-    <p>Inserer nom List <input type="text"  name="NameElem" size="5" /></p>
-    <p><textarea cols=40" rows="5" name="CtElem">Contenue de votre List</textarea></p>
+    <p>Inserer nom Liste<input type="text"  name="NameElem" size="5" /></p>
+    <p><textarea cols=40" rows="5" name="CtElem">Contenu de votre Liste</textarea></p>
     <p><input type="submit", value="ajouter"></p>
 </form>
 </body>

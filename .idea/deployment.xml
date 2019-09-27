@@ -5,7 +5,8 @@
       <paths name="IUT">
         <serverdata>
           <mappings>
-            <mapping deploy="/GROUPETD" local="$PROJECT_DIR$" web="/GROUPETD" />
+            <mapping deploy="/PHP" local="$PROJECT_DIR$" web="/PHP" />
+            <mapping local="" />
           </mappings>
         </serverdata>
       </paths>

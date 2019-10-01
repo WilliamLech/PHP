@@ -1,5 +1,18 @@
 body {
     background-color: #ecf0f1;
+    padding-top: 5px;
+}
+
+a.bouton {
+    text-decoration: none!important;
+    padding: 7px;
+    background-color: #2ecc71;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+a.bouton:hover {
+    background-color: #27ae60;
 }
 
 .inscription {

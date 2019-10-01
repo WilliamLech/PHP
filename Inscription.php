@@ -35,6 +35,8 @@ catch(PDOException $e){
 <body>
 <a href="http://la-myweb.univ-lemans.fr/~i181795/Projet_php/git_depot/Connexion.php" class="bouton">Retour</a>
     <div class="inscription">
+        <header>Inscription</header>
+        <img src="images/resume.png" alt="inscription" height="70" /><br />
         <form method="post" action="Inscription.php">
             Nom utilisateur<br/><input type="text" name="userName"><br/><br/>
             Mot de passe<br/><input type="password" name="psw"><br/><br/>

@@ -25,6 +25,8 @@
         <?php
         echo("Fiches"."<br/>")
         ?>
+        <div class="blocListe"></div>
+
     </div>
     <div class="footer"></div>
 </div>

@@ -29,6 +29,12 @@
     background-color: #C0C0C0;
 }
 
+.blocListe{
+    height: 10vh;
+    width: 10vh;
+    padding: 0.5em;
+}
+
 .footer {
     grid-area: footer;
     background-color: #27ae60;

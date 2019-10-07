@@ -10,6 +10,13 @@ $annexe =$result ->fetch();
 $sql2 = "SELECT count(idList) as nbrList from USER NATURAL JOIN ACCES NATURAL JOIN LIST  WHERE nameUser = '$user' AND pwUser = '$pass';";
 $result2 = $dbh->query($sql2);
 $annexe2 =$result2 ->fetch();
+
+if (isset($_POST['CreaList']) && isset($_POST["NameElem"])){
+    $nam = $_POST["NameElem"];
+    $sql3 = "INSERT INTO LIST(nameList) VALUES ($nam) "; // faire la liaison avec l'utilisateur
+    $dbh->exec($sql3);
+    header("Location: Connexion.php");
+} else echo("erreur");
 ?>
 
 <!DOCTYPE html>
@@ -38,10 +45,13 @@ $annexe2 =$result2 ->fetch();
             foreach($list as $item){
                 echo("<input type=\"radio\" name=\"list\" value=\"$item[nameList]\"> $item[nameList]<br>");
             }?>
-            <br/><br/>
             <input type="submit" value="Valider">
         </form>
-        <form method="post" action="CreaList.php"><input type="submit" value="Création d'une list"><form/>
+        <form method="post" action="listeRecap.php">
+            <br/><br/>
+            <p>Inserer nom List <input type="text"  name="NameList" size="5" /></p>
+            <input type="submit" name="CreaList" value="Création d'une liste">
+        <form/>
     </div>
     <div class="footer"></div>
 </div>

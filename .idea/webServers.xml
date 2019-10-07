@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="331cd305-dbd5-4a81-bf7e-c086c442ee0d" name="IUT" url="http://la-myweb.univ-lemans.fr/~i180394">
+      <webServer id="aec0c6f6-1025-47f7-ae1d-d1fa36000783" name="IUT" url="http://la-myweb.univ-lemans.fr/~i180394">
         <fileTransfer host="la-myweb.univ-lemans.fr" port="22" rootFolder="/home/www" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />

@@ -4,7 +4,7 @@ session_start();
 $dbh = new PDO("$server:host=$host;dbname=$base", $user, $pass);
 $pass = $_SESSION["config_pass"];
 $user = $_SESSION["config_user"];
-$sql = "SELECT phoneUser,mailUser from USER WHERE nameUser = '$user' AND pwUser = '$pass';";
+$sql = "SELECT phoneUser,mailUser,idUser from USER WHERE nameUser = '$user' AND pwUser = '$pass';";
 $result = $dbh->query($sql);
 $annexe =$result ->fetch();
 $sql2 = "SELECT count(idList) as nbrList from USER NATURAL JOIN ACCES NATURAL JOIN LIST  WHERE nameUser = '$user' AND pwUser = '$pass';";
@@ -15,6 +15,13 @@ if (isset($_POST['CreaList']) && isset($_POST["NameElem"])){
     $nam = $_POST["NameElem"];
     $sql3 = "INSERT INTO LIST(nameList) VALUES ($nam) "; // faire la liaison avec l'utilisateur
     $dbh->exec($sql3);
+
+    $sql4 = "SELECT idList from LIST Where nameList = $nam;";
+    $result4 = $dbh->query($sql4);
+    $annexe4 =$result4 ->fetch();
+
+    $sql5 = "INSERT INTO ACESS VALUES ($annexe[idUserk],$annexe4[idList]) ";
+    $dbh->exec($sql5);
     header("Location: Connexion.php");
 } else echo("erreur");
 ?>

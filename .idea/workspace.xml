@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bf7825c-f7ea-4da1-bb76-b8a6b4893335" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Connecte.php" beforeDir="false" afterPath="$PROJECT_DIR$/Connecte.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_info.php" beforeDir="false" afterPath="$PROJECT_DIR$/db_info.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +109,7 @@
       <workItem from="1570092014821" duration="858000" />
       <workItem from="1570347539097" duration="1452000" />
       <workItem from="1570352325807" duration="1222000" />
-      <workItem from="1570428398873" duration="1804000" />
+      <workItem from="1570428398873" duration="2375000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;mise a joour&quot;">
       <created>1568905880792</created>
@@ -134,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570429860549</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="&quot;mise a joour&quot;">
+      <created>1570430381347</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1570430381347</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

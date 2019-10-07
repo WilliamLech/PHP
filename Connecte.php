@@ -47,9 +47,9 @@ if (isset($_POST['CreaList']) && isset($_POST["NameElem"])){
             }?>
             <input type="submit" value="Valider">
         </form>
+        <br/><br/>
         <form method="post" action="listeRecap.php">
-            <br/><br/>
-            <p>Inserer nom List <input type="text"  name="NameList" size="5" /></p>
+            <p>Nom Liste <input type="text"  name="NameList" size="5" /></p>
             <input type="submit" name="CreaList" value="Création d'une liste">
         <form/>
     </div>

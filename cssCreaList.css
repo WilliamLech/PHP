@@ -4,10 +4,9 @@ body {
 }
 
 header {
-    font-size: 25px;
+    font-size: 18px;
     font-family: Arial;
     text-transform: uppercase;
-    text-shadow: 2px 2px #27ae60;
 }
 
 a.bouton {
@@ -22,7 +21,7 @@ a.bouton:hover {
     background-color: #27ae60;
 }
 
-.inscription {
+.creaList {
     position: absolute;
     top: 25%;
     left: 37%;

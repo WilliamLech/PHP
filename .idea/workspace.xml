@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8bf7825c-f7ea-4da1-bb76-b8a6b4893335" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connecte.php" beforeDir="false" afterPath="$PROJECT_DIR$/Connecte.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CreaList.php" beforeDir="false" afterPath="$PROJECT_DIR$/CreaList.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,20 +15,6 @@
     <execution>
       <executable />
     </execution>
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -44,20 +30,9 @@
   <component name="ProjectId" id="1Qew0twSUXZ7mk8ZNCUyJSFOOEO" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\INFO2\PHP\PHP_web" />
-    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -72,10 +47,15 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="PHP_web" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+    <configuration name="PHP_web" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner directory="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.PHP_web" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -97,19 +77,8 @@
       <workItem from="1569316794276" duration="135000" />
       <workItem from="1569317166585" duration="335000" />
       <workItem from="1569390522704" duration="777000" />
-      <workItem from="1569570192936" duration="5964000" />
-      <workItem from="1569914673906" duration="58000" />
-      <workItem from="1569914923745" duration="628000" />
-      <workItem from="1569922543474" duration="436000" />
-      <workItem from="1569923181057" duration="13000" />
-      <workItem from="1569925930992" duration="2099000" />
-      <workItem from="1569942749351" duration="1029000" />
-      <workItem from="1570089956162" duration="1236000" />
-      <workItem from="1570091682077" duration="299000" />
-      <workItem from="1570092014821" duration="858000" />
-      <workItem from="1570347539097" duration="1452000" />
-      <workItem from="1570352325807" duration="1222000" />
-      <workItem from="1570428398873" duration="2375000" />
+      <workItem from="1569570192936" duration="1398000" />
+      <workItem from="1569922625373" duration="2748000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;mise a joour&quot;">
       <created>1568905880792</created>
@@ -125,21 +94,7 @@
       <option name="project" value="LOCAL" />
       <updated>1569316457656</updated>
     </task>
-    <task id="LOCAL-00003" summary="&quot;mise a joour&quot;">
-      <created>1570429860549</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1570429860549</updated>
-    </task>
-    <task id="LOCAL-00004" summary="&quot;mise a joour&quot;">
-      <created>1570430381347</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1570430381347</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -52,7 +52,7 @@ if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {
         ?>
     </div>
 
-    <div class="main">Salut !</div>
+    <div class="main">Mettre ici les listes publiques ☺</div>
 
     <div class="footer"></div>
 </div>

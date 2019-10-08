@@ -5,7 +5,7 @@ if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {
     $dbh = new PDO("$server:host=$host;dbname=$base", $user, $pass);
     $pass = $_POST["config_pass"];
     $user = $_POST["config_user"];
-    $sql = "SELECT * from USER WHERE nameUser = '$user' AND pwUser = '$pass';";
+    $sql = "SELECT * from USER WHERE nameUser = '$user' AND pwUser = '$pass'";
     try {
         $result = $dbh->query($sql);
         if ($result->fetch()) {

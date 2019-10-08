@@ -8,7 +8,7 @@ try{
             $pw = $_POST["psw"];
             $mail = $_POST["mail"];
             $tel = $_POST["tel"];
-            $sql = "INSERT INTO `USER`(`nameUser`, `pwUser`, `mailUser`, `telUser`) VALUES ('$id','$pw', '$mail', '$tel') ";
+            $sql = "INSERT INTO USER( nameUser, pwUser, mailUser,phoneUser) VALUES ('$id','$pw','$mail','$tel') ";
             $dbh->exec($sql);
             header("Location: Connexion.php");
         }

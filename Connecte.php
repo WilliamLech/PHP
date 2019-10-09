@@ -13,6 +13,7 @@ $sql2 = "SELECT count(idList) as nbrList from USER NATURAL JOIN ACCES NATURAL JO
 $result2 = $dbh->query($sql2);
 $annexe2 =$result2 ->fetch();
 
+if
 if (isset($_POST['CreaList']) && isset($_POST["NameList"])){
     $nam = $_POST["NameList"];
     $sql3 = "INSERT INTO LIST(nameList) VALUES ('$nam') ";
@@ -26,6 +27,12 @@ if (isset($_POST['CreaList']) && isset($_POST["NameList"])){
     $IDlist = $annexe4[idList];
     $sql5 = "INSERT INTO ACCES(idUser,idList,roleAcces) VALUES ('$iduser','$IDlist','Proprietaire') ";
     $dbh->exec($sql5);
+}
+
+if (isset($_POST['SuppList']) && isset($_POST["NameList"])){
+    $nam = $_POST["NameList"];
+    $sql6 = "DELETE FROM LIST WHERE nameList = '$nam'";
+    $dbh->exec($sql6);
 }
 
 if (isset($_POST['SelectList']) && isset($_POST["list"])){
@@ -61,7 +68,7 @@ if (isset($_POST['SelectList']) && isset($_POST["list"])){
             foreach($list as $item){
                 echo("<input type=\"radio\" name=\"list\" value=\"$item[nameList]\"> $item[nameList]<br>");
             }?>
-            <input type="submit" name="SelectList" value="Valider">
+            <input type="submit" name="SelectList" value="Valider"> <input type="submit" name="SupptList" value="Supprimer">
         </form>
 
         <br/><br/>

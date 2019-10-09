@@ -11,11 +11,13 @@ $result2 = $dbh->query($sql2);
 $annexe2 =$result2 ->fetch();
 
 if (isset($_POST['DescElem']) && isset($_POST['NomElem']) && isset($_POST["CreaElem"])){
-    $descElem = $_POST['DescElem'];
-    $nomElem = $_POST['NomElem'];
-    $idList = $annexe2['idList'];
-    $sql3 = "INSERT INTO ELEMENT(NomElem,DescElem,DateDElem,idList) VALUES ('$nomElem','$descElem',date(now()),'$idList') ";
-    $dbh->exec($sql3);
+    if ($_POST['NomElem'] !=''){
+        $descElem = $_POST['DescElem'];
+        $nomElem = $_POST['NomElem'];
+        $idList = $annexe2['idList'];
+        $sql3 = "INSERT INTO ELEMENT(NomElem,DescElem,DateDElem,idList) VALUES ('$nomElem','$descElem',date(now()),'$idList') ";
+        $dbh->exec($sql3);
+    }
 }
 ?>
 

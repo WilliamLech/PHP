@@ -13,9 +13,8 @@ $sql2 = "SELECT count(idList) as nbrList from USER NATURAL JOIN ACCES NATURAL JO
 $result2 = $dbh->query($sql2);
 $annexe2 =$result2 ->fetch();
 
-if
-if (isset($_POST['CreaList']) && isset($_POST["NameList"])){
-    $nam = $_POST["NameList"];
+if (isset($_GET["NameList"])){
+    $nam = $_GET["NameList"];
     $sql3 = "INSERT INTO LIST(nameList) VALUES ('$nam') ";
     $dbh->exec($sql3);
 
@@ -24,15 +23,17 @@ if (isset($_POST['CreaList']) && isset($_POST["NameList"])){
     $annexe4 =$result4 ->fetch();
 
     $iduser = $annexe[idUser];
-    $IDlist = $annexe4[idList];
-    $sql5 = "INSERT INTO ACCES(idUser,idList,roleAcces) VALUES ('$iduser','$IDlist','Proprietaire') ";
-    $dbh->exec($sql5);
-}
+    $idlist = $annexe4[idList];
+    if (isset($_GET['CreaList'])){
+        $sql5 = "INSERT INTO ACCES(idUser,idList,roleAcces) VALUES ('$iduser','$idlist','Proprietaire') ";
+        $dbh->exec($sql5);
+    } else if (isset($_GET['SuppList'])){
+        $sql6 = "DELETE FROM ELEMENT WHERE idList = '$idlist'";
+        $dbh->exec($sql6);
 
-if (isset($_POST['SuppList']) && isset($_POST["NameList"])){
-    $nam = $_POST["NameList"];
-    $sql6 = "DELETE FROM LIST WHERE nameList = '$nam'";
-    $dbh->exec($sql6);
+        $sql7 = "DELETE FROM LIST WHERE nameList = '$nam'";
+        $dbh->exec($sql7);
+}
 }
 
 if (isset($_POST['SelectList']) && isset($_POST["list"])){
@@ -61,7 +62,7 @@ if (isset($_POST['SelectList']) && isset($_POST["list"])){
         ?>
     </div>
     <div class="main">
-        <form method="post"  action="Connecte.php">
+        <form method="get"  action="Connecte.php">
             <?php
             $sql6 = "SELECT nameList from LIST NATURAL JOIN ACCES NATURAL JOIN USER WHERE nameUser = '$user' AND pwUser = '$pass'";
             $list = $dbh->query($sql6);

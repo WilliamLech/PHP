@@ -1,15 +1,38 @@
 <?php
 include_once("db_info.php");
-$dbh = new PDO("$server:host=$host;dbname=$base", $user, $pass);
 session_start();
+$dbh = new PDO("$server:host=$host;dbname=$base", $user, $pass);
 $pass = $_SESSION["config_pass"];
 $user = $_SESSION["config_user"];
-$sql = "SELECT phoneUser,mailUser from USER WHERE nameUser = '$user' AND pwUser = '$pass';";
+
+$sql = "SELECT phoneUser,mailUser,idUser from USER WHERE nameUser = '$user' AND pwUser = '$pass';";
 $result = $dbh->query($sql);
 $annexe =$result ->fetch();
-$sql2 = "SELECT count(idList) from USER WHERE nameUser = '$user' AND pwUser = '$pass';";
+
+$sql2 = "SELECT count(idList) as nbrList from USER NATURAL JOIN ACCES NATURAL JOIN LIST  WHERE nameUser = '$user' AND pwUser = '$pass';";
 $result2 = $dbh->query($sql2);
 $annexe2 =$result2 ->fetch();
+
+if (isset($_POST['CreaList']) && isset($_POST["NameList"])){
+    $nam = $_POST["NameList"];
+    $sql3 = "INSERT INTO LIST(nameList) VALUES ('$nam') ";
+    $dbh->exec($sql3);
+
+    $sql4 = "SELECT idList from LIST Where nameList = '$nam'";
+    $result4 = $dbh->query($sql4);
+    $annexe4 =$result4 ->fetch();
+
+    $iduser = $annexe[idUser];
+    $IDlist = $annexe4[idList];
+    $sql5 = "INSERT INTO ACCES(idUser,idList) VALUES ('$iduser','$IDlist') ";
+    $dbh->exec($sql5);
+}
+
+if (isset($_POST['SelectList']) && isset($_POST["list"])){
+    $formList = filter_var($_POST["list"]);
+    $_SESSION["List"] = $formList;
+    header("Location: listeRecap.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -27,21 +50,26 @@ $annexe2 =$result2 ->fetch();
         echo ("Nom d'utilisateur : ".$user."<br/>
                 E-mail : ".$annexe[mailUser]."<br/>
                 Téléphone : ".$annexe[phoneUser]."<br/>
-                Nombre de liste : ");
+                Nombre de liste : ".$annexe2[nbrList]);
         ?>
     </div>
     <div class="main">
-        <form method="post" action="listeRecap.php">
+        <form method="post"  action="Connecte.php">
             <?php
-            $sql3 = "SELECT nameList from LIST NATURAL JOIN ACCES NATURAL JOIN USER WHERE nameUser = '$user' AND pwUser = '$pass';";
-            $list = $dbh->query($sql3);
+            $sql6 = "SELECT nameList from LIST NATURAL JOIN ACCES NATURAL JOIN USER WHERE nameUser = '$user' AND pwUser = '$pass'";
+            $list = $dbh->query($sql6);
             foreach($list as $item){
                 echo("<input type=\"radio\" name=\"list\" value=\"$item[nameList]\"> $item[nameList]<br>");
             }?>
-            <br/><br/>
-            <input type="submit" value="Valider">
-            <form/>
-            <form method="post" action="CreaList.php"><input type="submit" value="Création d'une list"><form/>
+            <input type="submit" name="SelectList" value="Valider">
+        </form>
+
+        <br/><br/>
+
+        <form method="post" action="Connecte.php">
+            <p>Nom Liste <input type="text"  name="NameList" size="5" /></p>
+            <input type="submit" name="CreaList" value="Création d'une liste">
+        </form>
     </div>
     <div class="footer"></div>
 </div>

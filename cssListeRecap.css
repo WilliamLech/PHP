@@ -11,9 +11,9 @@
 }
 
 .categorie{
+    grid-area: categorie;
     padding-top: 3vh;
     padding-left: 5vh;
-    grid-area: categorie;
     background-color: #2ecc71;
 }
 

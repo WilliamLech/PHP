@@ -10,6 +10,18 @@
     grid-auto-rows: 15vh 71vh 10vh;
 }
 
+a.bouton {
+    text-decoration: none!important;
+    padding: 7px;
+    background-color: #2ecc71;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+a.bouton:hover {
+    background-color: #27ae60;
+}
+
 .categorie{
     grid-area: categorie;
     padding-top: 3vh;

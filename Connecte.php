@@ -24,7 +24,7 @@ if (isset($_POST['CreaList']) && isset($_POST["NameList"])){
 
     $iduser = $annexe[idUser];
     $IDlist = $annexe4[idList];
-    $sql5 = "INSERT INTO ACCES(idUser,idList) VALUES ('$iduser','$IDlist') ";
+    $sql5 = "INSERT INTO ACCES(idUser,idList,roleAcces) VALUES ('$iduser','$IDlist','Proprietaire') ";
     $dbh->exec($sql5);
 }
 

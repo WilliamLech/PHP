@@ -9,37 +9,50 @@ $sql = "SELECT phoneUser,mailUser,idUser from USER WHERE nameUser = '$user' AND 
 $result = $dbh->query($sql);
 $annexe =$result ->fetch();
 
+$formIdUser = filter_var($annexe[idUser]);
+$_SESSION["idUser"] = $formIdUser;
+$iduser = $annexe[idUser];
+
 $sql2 = "SELECT count(idList) as nbrList from USER NATURAL JOIN ACCES NATURAL JOIN LIST  WHERE nameUser = '$user' AND pwUser = '$pass';";
 $result2 = $dbh->query($sql2);
 $annexe2 =$result2 ->fetch();
 
-if (isset($_GET["NameList"])){
-    $nam = $_GET["NameList"];
+if ($_POST["NameList"] != null && isset($_POST['CreaList'])){
+    $nam = $_POST["NameList"];
     $sql3 = "INSERT INTO LIST(nameList) VALUES ('$nam') ";
     $dbh->exec($sql3);
 
     $sql4 = "SELECT idList from LIST Where nameList = '$nam'";
     $result4 = $dbh->query($sql4);
     $annexe4 =$result4 ->fetch();
-
-    $iduser = $annexe[idUser];
     $idlist = $annexe4[idList];
-    if (isset($_GET['CreaList'])){
-        $sql5 = "INSERT INTO ACCES(idUser,idList,roleAcces) VALUES ('$iduser','$idlist','Proprietaire') ";
-        $dbh->exec($sql5);
-    } else if (isset($_GET['SuppList'])){
-        $sql6 = "DELETE FROM ELEMENT WHERE idList = '$idlist'";
-        $dbh->exec($sql6);
 
-        $sql7 = "DELETE FROM LIST WHERE nameList = '$nam'";
-        $dbh->exec($sql7);
-}
+    $sql5 = "INSERT INTO ACCES(idUser,idList,roleAcces) VALUES ('$iduser','$idlist','Proprietaire') ";
+    $dbh->exec($sql5);
 }
 
 if (isset($_POST['SelectList']) && isset($_POST["list"])){
     $formList = filter_var($_POST["list"]);
     $_SESSION["List"] = $formList;
     header("Location: listeRecap.php");
+}
+if (isset($_POST['SuppList']) && isset($_POST["list"])){
+    $nam = $_POST["list"];
+    $sql4 = "SELECT idList from LIST Where nameList = '$nam'";
+    $result4 = $dbh->query($sql4);
+    $annexe4 = $result4->fetch();
+    $idlist = $annexe4[idList];
+
+    $sql8 = "SELECT roleAcces from ACCES Where idUser = '$iduser' AND idList = '$idlist'";
+    $result8 = $dbh->query($sql8);
+    $annexe8 =$result8 ->fetch();
+
+    if ($annexe8[roleAcces] == "Proprietaire") {
+        $sql7 = "DELETE FROM LIST WHERE nameList = '$nam'";
+        $dbh->exec($sql7);
+    } else {
+        $msgError = "Vous n'avez pas les droits";
+    }
 }
 ?>
 
@@ -62,18 +75,19 @@ if (isset($_POST['SelectList']) && isset($_POST["list"])){
         ?>
     </div>
     <div class="main">
-        <form method="get"  action="Connecte.php">
+        <form method="post"  action="Connecte.php">
             <?php
             $sql6 = "SELECT nameList from LIST NATURAL JOIN ACCES NATURAL JOIN USER WHERE nameUser = '$user' AND pwUser = '$pass'";
             $list = $dbh->query($sql6);
             foreach($list as $item){
                 echo("<input type=\"radio\" name=\"list\" value=\"$item[nameList]\"> $item[nameList]<br>");
-            }?>
-            <input type="submit" name="SelectList" value="Valider"> <input type="submit" name="SupptList" value="Supprimer">
+            }
+            echo ($msgError) ?>
+            <br/>
+            <input type="submit" name="SelectList" value="Valider">
+            <input type="submit" name="SuppList" value="Supprimer">
         </form>
-
-        <br/><br/>
-
+        <br/><br/><br/>
         <form method="post" action="Connecte.php">
             <p>Nom Liste <input type="text"  name="NameList" size="5" /></p>
             <input type="submit" name="CreaList" value="Création d'une liste">

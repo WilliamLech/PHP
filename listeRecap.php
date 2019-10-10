@@ -30,7 +30,6 @@ if (isset($_POST['DescElem']) && isset($_POST['NomElem']) && isset($_POST["CreaE
 </head>
 <body>
 <div class="grid-container">
-    <a href="http://la-myweb.univ-lemans.fr/~i180394/Connecte.php" class="bouton">Retour</a>
     <div class="categorie">
         <?php
         echo("Il s'agit de la liste : ".$list."<br/>")
@@ -56,9 +55,11 @@ if (isset($_POST['DescElem']) && isset($_POST['NomElem']) && isset($_POST["CreaE
         } else echo ("Pas d'element dans la liste.")
         ?>
         <div class="blocListe"></div>
-
     </div>
-    <div class="footer"></div>
+    <div class="footer">
+        <br />
+        <a href="http://la-myweb.univ-lemans.fr/~i180394/Connecte.php" class="bouton">Retour</a>
+    </div>
 </div>
 </body>
 </html>

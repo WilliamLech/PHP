@@ -11,6 +11,7 @@
 }
 
 a.bouton {
+    margin-left: 15px;
     text-decoration: none!important;
     padding: 7px;
     background-color: #2ecc71;

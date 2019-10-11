@@ -37,7 +37,6 @@ if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {
 <body>
 <div class="grid-container">
     <div class="top"></div>
-
     <div class="login">
             <form method="post" action="Connexion.php">
                 Nom d'utilisateur : <label><input type="text" name="config_user" size="20"></label><br>

@@ -57,7 +57,6 @@ if (isset($_POST['DescElem']) && isset($_POST['NomElem']) && isset($_POST["CreaE
         <div class="blocListe"></div>
     </div>
     <div class="footer">
-        <br />
         <a href="http://la-myweb.univ-lemans.fr/~i180394/Connecte.php" class="bouton">Retour</a>
     </div>
 </div>

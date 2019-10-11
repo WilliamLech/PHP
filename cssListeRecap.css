@@ -10,16 +10,15 @@
     grid-auto-rows: 15vh 71vh 10vh;
 }
 
-a.bouton {
+.retour {
     margin-left: 15px;
-    text-decoration: none!important;
     padding: 7px;
     background-color: #2ecc71;
     border-radius: 5px;
     color: #FFFFFF;
 }
 
-a.bouton:hover {
+.retour:hover {
     background-color: #27ae60;
 }
 
@@ -39,6 +38,7 @@ a.bouton:hover {
 
 .fiches{
     grid-area: fiches;
+    padding: 5vh;
     background-color: #C0C0C0;
 }
 

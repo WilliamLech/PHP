@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8bf7825c-f7ea-4da1-bb76-b8a6b4893335" name="Default Changelist" comment="&quot;mise a joour&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connecte.php" beforeDir="false" afterPath="$PROJECT_DIR$/Connecte.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cssListeRecap.css" beforeDir="false" afterPath="$PROJECT_DIR$/cssListeRecap.css" afterDir="false" />
-    </list>
+    <list default="true" id="8bf7825c-f7ea-4da1-bb76-b8a6b4893335" name="Default Changelist" comment="&quot;mise a joour&quot;" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +89,7 @@
       <workItem from="1570688492786" duration="2404000" />
       <workItem from="1570718392559" duration="5230000" />
       <workItem from="1570723909354" duration="1042000" />
-      <workItem from="1570778257768" duration="269000" />
+      <workItem from="1570778257768" duration="628000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;mise a joour&quot;">
       <created>1568905880792</created>

@@ -26,6 +26,7 @@
 
 .fiches{
     grid-area: fiches;
+    padding: 3vh;
     background-color: #C0C0C0;
 }
 

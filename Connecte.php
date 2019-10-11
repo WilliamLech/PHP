@@ -13,10 +13,6 @@ $formIdUser = filter_var($annexe[idUser]);
 $_SESSION["idUser"] = $formIdUser;
 $iduser = $annexe[idUser];
 
-$sql2 = "SELECT count(idList) as nbrList from USER NATURAL JOIN ACCES NATURAL JOIN LIST  WHERE nameUser = '$user' AND pwUser = '$pass';";
-$result2 = $dbh->query($sql2);
-$annexe2 =$result2 ->fetch();
-
 if ($_POST["NameList"] != null && isset($_POST['CreaList'])){
     $nam = $_POST["NameList"];
     $sql3 = "INSERT INTO LIST(nameList) VALUES ('$nam') ";
@@ -54,6 +50,10 @@ if (isset($_POST['SuppList']) && isset($_POST["list"])){
         $msgError = "Vous n'avez pas les droits";
     }
 }
+
+$sql2 = "SELECT count(idList) as nbrList from USER NATURAL JOIN ACCES NATURAL JOIN LIST  WHERE nameUser = '$user' AND pwUser = '$pass';";
+$result2 = $dbh->query($sql2);
+$annexe2 =$result2 ->fetch();
 ?>
 
 <!DOCTYPE html>

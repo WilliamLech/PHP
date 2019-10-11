@@ -38,7 +38,11 @@
 
 .fiches{
     grid-area: fiches;
+<<<<<<< HEAD
     padding: 5vh;
+=======
+    padding: 3vh;
+>>>>>>> d662b8abb84f57a018cbe8e0538386ea89ce1239
     background-color: #C0C0C0;
 }
 

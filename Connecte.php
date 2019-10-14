@@ -15,16 +15,24 @@ $iduser = $annexe[idUser];
 
 if ($_POST["NameList"] != null && isset($_POST['CreaList'])){
     $nam = $_POST["NameList"];
-    $sql3 = "INSERT INTO LIST(nameList) VALUES ('$nam') ";
-    $dbh->exec($sql3);
+    $sql9 = "SELECT count(idList) as nbreList from LIST Where nameList = '$nam'";
+    $result9 = $dbh->query($sql9);
+    $annexe9 =$result9 ->fetch();
 
-    $sql4 = "SELECT idList from LIST Where nameList = '$nam'";
-    $result4 = $dbh->query($sql4);
-    $annexe4 =$result4 ->fetch();
-    $idlist = $annexe4[idList];
+    if($annexe9[nbreList] < 1){
+        $sql3 = "INSERT INTO LIST(nameList) VALUES ('$nam') ";
+        $dbh->exec($sql3);
 
-    $sql5 = "INSERT INTO ACCES(idUser,idList,roleAcces) VALUES ('$iduser','$idlist','Proprietaire') ";
-    $dbh->exec($sql5);
+        $sql4 = "SELECT idList from LIST Where nameList = '$nam'";
+        $result4 = $dbh->query($sql4);
+        $annexe4 =$result4 ->fetch();
+        $idlist = $annexe4[idList];
+
+        $sql5 = "INSERT INTO ACCES(idUser,idList,roleAcces) VALUES ('$iduser','$idlist','Proprietaire') ";
+        $dbh->exec($sql5);
+    }  else {
+        $msgError2 = "Liste déjà existante";
+    }
 }
 
 if (isset($_POST['SelectList']) && isset($_POST["list"])){
@@ -44,7 +52,7 @@ if (isset($_POST['SuppList']) && isset($_POST["list"])){
     $annexe8 =$result8 ->fetch();
 
     if ($annexe8[roleAcces] == "Proprietaire") {
-        $sql7 = "DELETE FROM LIST WHERE nameList = '$nam'";
+        $sql7 = "DELETE FROM LIST WHERE idList = '$idlist'";
         $dbh->exec($sql7);
     } else {
         $msgError = "Vous n'avez pas les droits";
@@ -89,7 +97,8 @@ $annexe2 =$result2 ->fetch();
         </form>
         <br/><br/><br/>
         <form method="post" action="Connecte.php">
-            <p>Nom Liste <input type="text"  name="NameList" size="5" /></p>
+            Nom Liste <input type="text"  name="NameList" size="5" /><br/>
+            <?php echo ($msgError2)."<br/>"?>
             <input type="submit" name="CreaList" value="Création d'une liste">
         </form>
     </div>

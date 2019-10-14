@@ -11,7 +11,7 @@
 }
 
 .retour {
-    margin-left: 15px;
+    text-decoration: none!important;
     padding: 7px;
     background-color: #2ecc71;
     border-radius: 5px;
@@ -51,4 +51,5 @@
 .footer {
     grid-area: footer;
     background-color: #27ae60;
+    padding: 3vh;
 }

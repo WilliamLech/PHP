@@ -83,7 +83,7 @@ if (isset($_POST['nomPerson']) && isset($_POST['AjoutPerson'])){
         <div class="blocListe"></div>
     </div>
     <div class="footer">
-        <a href="http://la-myweb.univ-lemans.fr/~i180394/Connecte.php" class="bouton">Retour</a>
+        <a href="Connecte.php" class="bouton">Retour</a>
     </div>
 </div>
 </body>

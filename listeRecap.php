@@ -36,13 +36,13 @@ if (isset($_POST['nomPerson']) && isset($_POST['AjoutPerson'])){
 }
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html></head>
+
 <html lang="fr">
 <head>
     <link type="text/css" rel="stylesheet" href="cssListeRecap.css">
     <meta charset="UTF-8">
     <title>Recap</title>
-</head>
 <body>
 <div class="grid-container">
     <div class="categorie">
@@ -64,7 +64,7 @@ if (isset($_POST['nomPerson']) && isset($_POST['AjoutPerson'])){
     <div class="ajout">
         <form method="post" action="listeRecap.php">
             Nom Element <input type="text"  name="NomElem" size="20" /><br/>
-            Description <input type="text"  name="DescElem" size="20" /><br/><br/>
+            Description <input type="text"  name="DescElem" size="20" /><br/>
             <input type="submit" name="CreaElem" value="Création d'un element">
         </form>
     </div>

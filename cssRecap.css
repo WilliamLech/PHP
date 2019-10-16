@@ -24,6 +24,7 @@ body {
     grid-area: main;
     padding: 10px;
     background-color: #C0C0C0;
+    overflow: auto;
 }
 
 .profil{

@@ -33,7 +33,7 @@ catch(PDOException $e){
     <title>Inscription</title>
 </head>
 <body>
-<a href="http://la-myweb.univ-lemans.fr/~i180394/Connexion.php" class="bouton">Retour</a>
+<a href="Connexion.php" class="bouton">Retour</a>
     <div class="inscription">
         <header>Inscription</header>
         <img src="images/resume.png" alt="inscription" height="70" /><br />

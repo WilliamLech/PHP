@@ -50,7 +50,7 @@
 }
 
 .footer {
+    padding: 3vh;
     grid-area: footer;
     background-color: #27ae60;
-    padding: 3vh;
 }

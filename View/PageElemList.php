@@ -1,5 +1,5 @@
 <?php
-include_once("Connexion.php");
+include_once("../Model/Connexion.php");
 session_start();
 $pass = $_SESSION["config_pass"];
 $nameUser = $_SESSION["config_user"];
@@ -34,7 +34,7 @@ if (isset($_POST['nomPerson']) && isset($_POST['AjoutPerson'])){
 
 <html lang="fr">
 <head>
-    <link type="text/css" rel="stylesheet" href="PageElemList.css">
+    <link type="text/css" rel="stylesheet" href="View/PageElemList.css">
     <meta charset="UTF-8">
     <title>Recap</title>
 </head>
@@ -45,9 +45,8 @@ if (isset($_POST['nomPerson']) && isset($_POST['AjoutPerson'])){
         echo("Il s'agit de la liste : ".$nameList."<br/>");
         $annexe4 = checkAccess($idUser,$idList);
         if ($annexe4[roleAcces] == 'Proprietaire'){
-            echo("<br/><form method=\"post\" action=\"PageElemList.php\">
-            <input type=\"text\"  name=\"nomPerson\" size=\"40\"/><input type=\"submit\" name=\"AjoutPerson\" value=\"Ajouter une personne\">
-            </form>");
+            echo(">
+            </form>\"");
         }
         echo $msgError;
         ?>

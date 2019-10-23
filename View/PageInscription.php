@@ -1,5 +1,5 @@
 <?php
-include_once("Connexion.php");
+include_once("../Model/Connexion.php");
 if (isset($_POST["Inscription"])) {
     if ($_POST["userName"]!="" && $_POST["psw"]!="" && $_POST["mail"]!="" && $_POST["tel"]) {
         $nameUser = $_POST["userName"];
@@ -26,7 +26,7 @@ if (isset($_POST["Inscription"])) {
 <a href="PageAccueil.php" class="bouton">Retour</a>
     <div class="inscription">
         <header>Inscription</header>
-        <img src="images/resume.png" alt="inscription" height="70" /><br />
+        <img src="../images/resume.png" alt="inscription" height="70" /><br />
         <form method="post" action="PageInscription.php">
             Nom utilisateur<br/><input type="text" name="userName"><br/><br/>
             Mot de passe<br/><input type="password" name="psw"><br/><br/>

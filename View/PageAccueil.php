@@ -1,5 +1,5 @@
 <?php
-include_once("Connexion.php");
+include_once("../Model/Connexion.php");
 
 if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {
     $pass = $_POST["config_pass"];

@@ -1,5 +1,5 @@
 <?php
-include_once("Connexion.php");
+include_once("../Model/Connexion.php");
 session_start();
 $pass = $_SESSION["config_pass"];
 $nameUser = $_SESSION["config_user"];

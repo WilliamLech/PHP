@@ -1,5 +1,4 @@
 <?php
-class Element
-{
+class Element {
 
 }

@@ -2,25 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bf7825c-f7ea-4da1-bb76-b8a6b4893335" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Controller/Element.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/Liste.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/Utilisateur.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/Connexion.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/InfoAcces.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/InfoElement.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/InfoListe.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/InfoUtilisateur.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connexion.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageAccueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/View/PageAccueil.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageAccueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/PageAccueil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageElemList.css" beforeDir="false" afterPath="$PROJECT_DIR$/View/PageElemList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageElemList.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/PageElemList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageInscription.css" beforeDir="false" afterPath="$PROJECT_DIR$/View/PageInscription.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageInscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/PageInscription.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageProfil.css" beforeDir="false" afterPath="$PROJECT_DIR$/View/PageProfil.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageProfil.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/PageProfil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_info.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/db_info.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/Element.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/Element.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/Liste.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/Liste.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/Utilisateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/Utilisateur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/PageElemList.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/PageElemList.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +115,8 @@
       <workItem from="1571306058554" duration="1424000" />
       <workItem from="1571311837549" duration="9221000" />
       <workItem from="1571410535698" duration="789000" />
-      <workItem from="1571821985647" duration="2899000" />
+      <workItem from="1571821985647" duration="4367000" />
+      <workItem from="1572871943005" duration="1268000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;mise a joour&quot;">
       <created>1568905880792</created>

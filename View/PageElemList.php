@@ -1,5 +1,6 @@
 <?php
 include_once("../Model/Connexion.php");
+
 session_start();
 $pass = $_SESSION["config_pass"];
 $nameUser = $_SESSION["config_user"];
@@ -34,7 +35,7 @@ if (isset($_POST['nomPerson']) && isset($_POST['AjoutPerson'])){
 
 <html lang="fr">
 <head>
-    <link type="text/css" rel="stylesheet" href="View/PageElemList.css">
+    <link type="text/css" rel="stylesheet" href="PageElemList.css">
     <meta charset="UTF-8">
     <title>Recap</title>
 </head>

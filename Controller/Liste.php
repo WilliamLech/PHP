@@ -1,5 +1,4 @@
 <?php
-class Liste
-{
+class Liste {
 
 }

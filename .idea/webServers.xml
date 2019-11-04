@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="aec0c6f6-1025-47f7-ae1d-d1fa36000783" name="IUT" url="https://la-myweb.univ-lemans.fr/~i180394/PHPTP">
-        <fileTransfer host="la-myweb.univ-lemans.fr" port="22" rootFolder="/home/www/PHPTP" accessType="SFTP">
+      <webServer id="aec0c6f6-1025-47f7-ae1d-d1fa36000783" name="IUT" url="https://la-myweb.univ-lemans.fr/~i180367/GROUPETD">
+        <fileTransfer host="la-myweb.univ-lemans.fr" port="22" rootFolder="/home/www/GROUPETD" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

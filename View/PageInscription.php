@@ -25,13 +25,12 @@ if (isset($_POST["Inscription"])) {
 <body>
 <a href="PageAccueil.php" class="bouton">Retour</a>
     <div class="inscription">
-        <header>Inscription</header>
-        <img src="../images/resume.png" alt="inscription" height="70" /><br />
+        <img src="../images/new-user.png" alt="inscription" height="70" /><br />
         <form method="post" action="PageInscription.php">
-            Nom utilisateur<br/><input type="text" name="userName"><br/><br/>
-            Mot de passe<br/><input type="password" name="psw"><br/><br/>
-            E-mail<br/><input type="email" name="mail"><br/><br/>
-            Tel.<br/><input type="tel" name="tel"><br/><br/>
+            <input type="text" name="userName" placeholder="Nom d'utilisateur"><br/><br/>
+            <input type="password" name="psw" placeholder="Mot de passe"><br/><br/>
+            <input type="email" name="mail" placeholder="Adresse mail"><br/><br/>
+            <input type="tel" name="tel" placeholder="Num. de téléphone"><br/><br/>
             <input type="submit" name='Inscription' value="S'inscrire"><br/>
             <?php
             echo $msg;

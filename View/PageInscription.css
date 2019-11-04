@@ -1,6 +1,7 @@
 body {
-    background-color: #FFFFFF;
+    background-color: #ecf0f1;
     padding-top: 5px;
+    font-family: Arial;
 }
 
 header {
@@ -13,24 +14,47 @@ header {
 a.bouton {
     text-decoration: none!important;
     padding: 7px;
-    background-color: #2ecc71;
-    border-radius: 5px;
+    background-color: #24a85b;
     color: #FFFFFF;
 }
 
 a.bouton:hover {
-    background-color: #27ae60;
+    background-color: #1f9350;
+}
+
+input[type=text], input[type=password], input[type=tel], input[type=email] {
+    padding: 7px;
+    border: 0 none;
+    border-radius: 5px;
+    width: 200px;
+}
+
+input[type=submit] {
+    border: 0 none;
+    cursor:pointer;
+    border-radius: 5px;
+    font-size: medium;
+    padding: 7px;
+    width: 214px;
+    background-color: #24a85b;
+    color: #FFFFFF;
+    margin-top: 1vh;
+}
+
+input[type=submit]:hover {
+    background-color: #1f9350;
 }
 
 .inscription {
-    position: absolute;
-    top: 25%;
-    left: 37%;
-    width: 25%;
+    margin: 20vh auto auto auto;
     background-color: #2ecc71;
-    border-radius: 50px;
+    width: 20vw;
+    height: 45vh;
     color: #FFFFFF;
     padding: 10px;
     text-align: center;
-    box-shadow: 10px 10px #27ae60;
+}
+
+.inscription > img {
+    margin: 10px;
 }

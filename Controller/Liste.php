@@ -1,4 +1,6 @@
 <?php
-class Liste {
+include_once("../Model/Connexion.php");
+
+class Liste{
 
 }

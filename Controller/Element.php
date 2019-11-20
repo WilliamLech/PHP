@@ -1,4 +1,6 @@
 <?php
-class Element {
+include_once("../Model/Connexion.php");
+
+class Element{
 
 }

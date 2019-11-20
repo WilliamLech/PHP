@@ -1,27 +1,3 @@
-<?php
-include_once("../Model/Connexion.php");
-
-if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {
-    $pass = $_POST["config_pass"];
-    $nameUser = $_POST["config_user"];
-    try {
-        if (infoUser($nameUser, $pass)) {
-            session_start();
-            $formUser = filter_var($nameUser);
-            $formPass = filter_var($pass);
-            $_SESSION["config_pass"] = $formPass;
-            $_SESSION["config_user"] = $formUser;
-            header("Location: PageProfil.php");
-        } else {
-            $message = "Identifiant ou mot de passe incorrect, veuillez réessayer.";
-        }
-        $dbh = null;
-    } catch (PDOException $e) {
-        print "Erreur !: " . $e->getMessage() . "<br/>";
-        die();
-    }
-}
-?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -34,7 +10,7 @@ if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {
 <div class="grid-container">
     <div class="top"></div>
     <div class="login">
-            <form method="post" action="PageAccueil.php">
+            <form method="post" action="index.php">
                 Nom d'utilisateur : <label><input type="text" name="config_user" size="20"></label><br>
                 Mot de passe : <label><input type="password" name="config_pass" size="20"></label><br>
                 <input type="submit" value="Valider">
@@ -43,7 +19,8 @@ if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {
             <input type="submit" value="S'inscrire">
         </form>
         <?php
-        echo $message;
+            include_once('../View/index.php');
+            getErreurPageAccueil();
         ?>
     </div>
 

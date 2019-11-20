@@ -46,8 +46,9 @@ if (isset($_POST['nomPerson']) && isset($_POST['AjoutPerson'])){
         echo("Il s'agit de la liste : ".$nameList."<br/>");
         $annexe4 = checkAccess($idUser,$idList);
         if ($annexe4[roleAcces] == 'Proprietaire'){
-            echo(">
-            </form>\"");
+            echo("<br/><form method=\"post\" action=\"PageElemList.php\">
+            <input type=\"text\"  name=\"nomPerson\" size=\"40\"/><input type=\"submit\" name=\"AjoutPerson\" value=\"Ajouter une personne\">
+            </form>");
         }
         echo $msgError;
         ?>

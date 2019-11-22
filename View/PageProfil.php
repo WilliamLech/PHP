@@ -1,5 +1,5 @@
 <?php
-include_once("../Model/Connexion.php");
+/* include_once("../Model/Connexion.php");
 session_start();
 $pass = $_SESSION["config_pass"];
 $nameUser = $_SESSION["config_user"];
@@ -36,7 +36,7 @@ if (isset($_POST['SuppList']) && isset($_POST["list"])){
         $msgError = "Vous n'avez pas les droits";
     }
 }
-$annexe2 = nbrListUser($nameUser,$pass)
+$annexe2 = nbrListUser($nameUser,$pass)*/
 ?>
 
 <!DOCTYPE html>
@@ -50,29 +50,19 @@ $annexe2 = nbrListUser($nameUser,$pass)
 <div class="grid-container">
     <div class="header"></div>
     <div class="profil">
-        <?php
-        echo ("Nom d'utilisateur : ".$nameUser  ."<br/>
-                E-mail : ".$annexe[mailUser]  ."<br/>
-                Téléphone : ".$annexe[phoneUser]  ."<br/>
-                Nombre de liste : ".$annexe2[nbrList]);
-        ?>
+        <?php affInfoProfilUser() ?>
     </div>
     <div class="main">
-        <form method="post"  action="PageProfil.php">
-            <?php
-            $infoList = ListPossedeUserQuerry($nameUser,$pass);
-            foreach($infoList as $item){
-                echo("<input type=\"radio\" name=\"list\" value=\"$item[nameList]\"> $item[nameList]<br>");
-            }
-            echo ($msgError) ?>
+        <form method="post"  action="index.php">
+            <?php affList() ?>
             <br/>
             <input type="submit" name="SelectList" value="Valider">
             <input type="submit" name="SuppList" value="Supprimer">
         </form>
         <br/><br/><br/>
-        <form method="post" action="PageProfil.php">
+        <form method="post" action="index.php">
             Nom Liste <input type="text"  name="NameList" size="5" /><br/>
-            <?php echo ($msgError2)."<br/>"?>
+            <?php echo $_SESSION["erreurPage"]."<br/>"?>
             <input type="submit" name="CreaList" value="Création d'une liste">
         </form>
     </div>

@@ -3,14 +3,13 @@ include_once("../Model/Connexion.php");
 
 class Utilisateur{
 
-    function connexion($pass,$nameUser){
+    public function connexion($pass,$nameUser){
         try {
-            if (infoUser($nameUser, $pass)) {
+            if ($annexe=infoUser($nameUser, $pass)) {
+                //on met l'idUser user en session pour facilement retrouver des info sur l'user
                 session_start();
-                $formUser = filter_var($nameUser);
-                $formPass = filter_var($pass);
-                $_SESSION["config_pass"] = $formPass;
-                $_SESSION["config_user"] = $formUser;
+                $formId = filter_var($annexe["idUser"]);
+                $_SESSION["id_user"] = $formId;
                 return true;
             } else {
                 return false;
@@ -19,5 +18,40 @@ class Utilisateur{
             print "Erreur !: " . $e->getMessage() . "<br/>";
             die();
         }
+    }
+
+    public function createUser($nameUser,$pw,$mail,$tel){
+        createNewUser($nameUser,$pw,$mail,$tel);
+    }
+
+    public function verifSupp($nameList,$idUser){
+        $annexe = infoList($nameList);
+        $idlist = $annexe["idList"];
+        $annexe2 = checkAccess($idUser,$idlist);
+        return $annexe2["roleAcces"];
+    }
+
+    public function allListQuerry($idUser){
+        return ListPossedeUserQuerry($idUser);
+    }
+
+    public function getName($idUser){
+        $info = AllinfoUser($idUser);
+        return $info["nameUser"];
+    }
+
+    public function getMail($idUser){
+        $info = AllinfoUser($idUser);
+        return $info["mailUser"];
+    }
+
+    public function getTel($idUser){
+        $info = AllinfoUser($idUser);
+        return $info["phoneUser"];
+    }
+
+    public function getNbreList($idUser){
+        $info = nbrListUser($idUser);
+        return $info["nbrList"];
     }
 }

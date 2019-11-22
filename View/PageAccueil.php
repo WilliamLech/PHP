@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,13 +18,10 @@
             <input type="submit" value="S'inscrire">
         </form>
         <?php
-            include_once('../View/index.php');
-            getErreurPageAccueil();
+            echo($_SESSION["erreurPage"]);
         ?>
     </div>
-
     <div class="main"></div>
-
     <div class="footer"></div>
 </div>
 

@@ -1,5 +1,5 @@
 <?php
-include_once("../Model/Connexion.php");
+/*include_once("../Model/Connexion.php");
 
 session_start();
 $pass = $_SESSION["config_pass"];
@@ -17,7 +17,7 @@ if (isset($_POST['DescElem']) && isset($_POST['NomElem']) && isset($_POST["CreaE
         $descElem = $_POST['DescElem'];
         createElem($nomElem,$descElem,$idList);
     }
-}
+}*/
 
 if (isset($_POST['nomPerson']) && isset($_POST['AjoutPerson'])){
     $nameAjout = $_POST['nomPerson'];

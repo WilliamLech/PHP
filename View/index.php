@@ -62,8 +62,9 @@ $user= new Utilisateur();
 
     if (isset($_POST['SelectList']) && isset($_POST["list"])){
         //pour changer de page
-        $formList = filter_var($_POST["list"]);
-        $_SESSION["List"] = $formList;
+        $annexe = $liste->getId($_POST["list"]);
+        $formList = filter_var($annexe["idList"]);
+        $_SESSION["idList"] = $formList;
         include_once('../View/PageElemList.php');
     }
 
@@ -96,3 +97,7 @@ $user= new Utilisateur();
     }
 
     // page Element liste //
+    if (isset($_POST['DescElem']) && isset($_POST['NomElem']) && isset($_POST["CreaElem"])){
+        $elem-> newElem($_POST['NomElem'],$_POST['DescElem'],$_SESSION["idList"]);
+    }
+

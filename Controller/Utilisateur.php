@@ -66,4 +66,9 @@ class Utilisateur{
         $info = nbrListUser($idUser);
         return $info["nbrList"];
     }
+
+    public function getId($nameUser){
+        $info = infoUserAjoutList($nameUser);
+        return $info["idUser"];
+    }
 }

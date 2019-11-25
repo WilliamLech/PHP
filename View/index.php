@@ -99,7 +99,7 @@ $user= new Utilisateur();
 
     if (isset($_POST['nomPerson']) && isset($_POST['AjoutPerson'])){
         if ($user -> exist($_POST['nomPerson'])){
-            $listee -> createAcces($_POST['nomPerson'],$_SESSION["idList"],'Collaborateur');
+            $listee -> createAcces($user ->getId($_POST['nomPerson']),$_SESSION["idList"],'Collaborateur');
             $formErreurPageElemList= filter_var("");
             $_SESSION["erreurPage"] = $formErreurPageElemList;
         } else {

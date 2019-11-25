@@ -1,41 +1,41 @@
 body {
-    background-color: #ecf0f1;
+    background-color: #ecf0f1; /* couleur de fond de la page */
 }
 
-.grid-container {
-    display: grid;
-    height: auto;
-    width: auto;
-    grid-template-areas:
+.grid-container { /* structure de la page (contenant principal) */
+    display: grid; /* structure de la page en grille (grid) */
+    height: auto; /* hauteur en fonction du contenu */
+    width: auto; /* largeur en fonction du contenu */
+    grid-template-areas: /* repartition des zones du grid */
             'header header header header header header'
             'profil main main main main main'
             'footer footer footer footer footer footer';
-    grid-gap: 1vh;
-    grid-auto-rows: 15vh 70.5vh 10vh;
+    grid-gap: 1vh; /* taille de la marge entre chaque aire du grid */
+    grid-auto-rows: 15vh 70.5vh 10vh; /* tailles des 3 lignes du grid */
 }
 
-.header{
+.header { /* zone en haut de la page */
     grid-area: header;
-    background-color: #2ecc71;
+    background-color: #2ecc71; /* couleur du fond de la zone */
 }
 
 
-.main{
-    grid-area: main;
-    padding: 10px;
-    background-color: #C0C0C0;
-    overflow: auto;
+.main {
+    grid-area: main; /* zone au milieu à droite de la page */
+    padding: 10px; /* marge interne de la zone */
+    background-color: #C0C0C0; /* couleur de fond de la zone */
+    overflow: auto; /* apparition d'une barre de defilement si trop de contenu */
 }
 
-.profil{
-    grid-area: profil;
-    padding-top: 3vh;
-    padding-left: 3vh;
-    background-color: #808080;
+.profil {
+    grid-area: profil; /* zone  à gauche de la page*/
+    padding-top: 3vh; /* marge interne superieure */
+    padding-left: 3vh; /* marge interne gauche */
+    background-color: #808080; /* couleur de fond de la zone */
 }
 
 .footer {
-    grid-area: footer;
-    height: 10vh;
-    background-color: #27ae60;
+    grid-area: footer; /* zone en bas de la page */
+    height: 10vh; /* hauteur de la zone */
+    background-color: #27ae60; /* couleur de fond de la zone */
 }

@@ -2,21 +2,12 @@
 include_once('../Controller/Element.php');
 include_once('../Controller/Liste.php');
 include_once('../Controller/Utilisateur.php');
-include_once('../Controller/Statistiques.php');
 
 session_start();
 $listee= new Liste();
 $elem= new Element();
 $user= new Utilisateur();
-$stats = new Statistiques();
 
-    //marche pas si on ouvre la page deux fois dans le mm navigateur
-    if ($_SESSION["premiereFois"] != $stats->showPageAccess()){
-        $val = $stats->showPageAccess();
-        $initialize = filter_var("$val");
-        $_SESSION["premiereFois"] = $initialize;
-        include_once('../View/PageAccueil.php');
-    }
 
     // Page d'Accueil //
     if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {

@@ -2,15 +2,19 @@
 include_once('../Controller/Element.php');
 include_once('../Controller/Liste.php');
 include_once('../Controller/Utilisateur.php');
+include_once('../Controller/Statistiques.php');
 
 session_start();
-$liste= new Liste();
+$listee= new Liste();
 $elem= new Element();
 $user= new Utilisateur();
+$stats = new Statistiques();
 
-    if (!isset($_SESSION["lancement"])){
-        $validate = filter_var("1");
-        $_SESSION["lancement"] = $validate;
+    //marche pas si on ouvre la page deux fois dans le mm navigateur
+    if ($_SESSION["premiereFois"] != $stats->showPageAccess()){
+        $val = $stats->showPageAccess();
+        $initialize = filter_var("$val");
+        $_SESSION["premiereFois"] = $initialize;
         include_once('../View/PageAccueil.php');
     }
 
@@ -49,8 +53,8 @@ $user= new Utilisateur();
     // page de Profil //
     if ($_POST["NameList"] != null && isset($_POST['CreaList'])){
         $nameList = $_POST["NameList"];
-        if($liste->verifDoublon($nameList)){ // vérifie qu'il n'y a pas deux liste en commun
-            $liste->addList($nameList);
+        if($listee->verifDoublon($nameList)){ // vérifie qu'il n'y a pas deux liste en commun
+            $listee->addList($nameList,$_SESSION["id_user"]);
             $formErreurPageProfil= filter_var("");
             $_SESSION["erreurPage"] = $formErreurPageProfil;
         } else {
@@ -62,16 +66,16 @@ $user= new Utilisateur();
 
     if (isset($_POST['SelectList']) && isset($_POST["list"])){
         //pour changer de page
-        $annexe = $liste->getId($_POST["list"]);
-        $formList = filter_var($annexe["idList"]);
+        $formList = filter_var($listee->getId($_POST["list"]));
         $_SESSION["idList"] = $formList;
         include_once('../View/PageElemList.php');
     }
 
-    if (isset($_POST['SuppList']) && isset($_POST["list"])){ // A FINIR
+    if (isset($_POST['SuppList']) && isset($_POST["list"])){
         $nameList = $_POST["list"];
-        if ($user -> verifSupp($nameList,$_SESSION["id_user"]) == 'Proprietaire') {
-            $liste -> SuppList($liste ->getId($nameList));
+        $idList=$listee ->getId($nameList);
+        if ($user ->listeRole($_SESSION["id_user"],$idList) == 1) {
+            $listee -> suppList($idList);
             $formErreurPageProfil = filter_var("");
             $_SESSION["erreurPage2"] = $formErreurPageProfil;
         } else {
@@ -89,7 +93,7 @@ $user= new Utilisateur();
     }
 
     function affList(){
-        $infoList = $GLOBALS['user'] -> allListQuerry($_SESSION["id_user"]);
+        $infoList = $GLOBALS['user']->allListQuerry($_SESSION["id_user"]);
         foreach($infoList as $item){
             echo("<input type=\"radio\" name=\"list\" value=\"$item[nameList]\"> $item[nameList]<br>");
         }
@@ -99,5 +103,40 @@ $user= new Utilisateur();
     // page Element liste //
     if (isset($_POST['DescElem']) && isset($_POST['NomElem']) && isset($_POST["CreaElem"])){
         $elem-> newElem($_POST['NomElem'],$_POST['DescElem'],$_SESSION["idList"]);
+        include_once('../View/PageElemList.php');
     }
 
+    if (isset($_POST['nomPerson']) && isset($_POST['AjoutPerson'])){
+        if ($user -> exist($_POST['nomPerson'])){
+            $listee -> createAcces($_POST['nomPerson'],$_SESSION["idList"],'Collaborateur');
+            $formErreurPageElemList= filter_var("");
+            $_SESSION["erreurPage"] = $formErreurPageElemList;
+        } else {
+            $formErreurPageElemList= filter_var("Cette personne n'existe pas");
+            $_SESSION["erreurPage"] = $formErreurPageElemList;
+        }
+        include_once('../View/PageElemList.php');
+    }
+
+    function gestionList(){
+        echo("Il s'agit de la liste : ".$GLOBALS['listee']->getName($_SESSION["idList"])."<br/>");
+        if ($GLOBALS['user']->listeRole($_SESSION["id_user"],$_SESSION["idList"]) == 1){
+            echo("<br/><form method=\"post\" action=\"index.php\">
+            <input type=\"text\"  name=\"nomPerson\" size=\"40\"/><input type=\"submit\" name=\"AjoutPerson\" value=\"Ajouter une personne\">
+            </form>");
+        }
+    }
+
+    function affElem(){
+        $result = $GLOBALS['listee']->listElem($_SESSION["idList"]);
+        $n=1;
+        foreach($GLOBALS['listee']->listElem($_SESSION["idList"]) as $item){
+            echo("Element n°".$n." nommé ".$item['NomElem']." ajouté le ".$item['DateDElem']." dit :  ".$item['DescElem']."<br/>");
+            $n++;
+        }
+        if ($n==1) echo ("Pas d'element dans la liste.");
+    }
+
+    if (isset($_POST['retour'])){
+        include_once('../View/PageProfil.php');
+    }

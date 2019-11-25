@@ -15,9 +15,16 @@ function createNewList($namList){
     $dbh->exec($sql);
 }
 
-function infoList($nameList){
+function infoList($idList){
     $dbh = $GLOBALS["dbh"];
-    $sql = "SELECT * from LIST Where nameList = '$nameList'";
+    $sql = "SELECT * from LIST Where idList = '$idList'";
+    $result = $dbh->query($sql);
+    return $result->fetch();
+}
+
+function searchId($nameList){
+    $dbh = $GLOBALS["dbh"];
+    $sql = "SELECT idList from LIST Where nameList = '$nameList'";
     $result = $dbh->query($sql);
     return $result->fetch();
 }
@@ -28,11 +35,11 @@ function SuppList($idlist){
     $dbh->exec($sql);
 }
 
-function ElemPossedeListQuerry($nameList){
+function ElemPossedeListQuerry($idList){
     $dbh = $GLOBALS["dbh"];
-    $sql = "SELECT * from ELEMENT NATURAL JOIN LIST WHERE nameList = '$nameList' ";
+    $sql = "SELECT * from ELEMENT NATURAL JOIN LIST WHERE idList = '$idList' ";
     return $dbh->query($sql);
 }
-function ElemPossedeList($nameList){
-    return ElemPossedeListQuerry($nameList)->fetch();
+function ElemPossedeList($idList){
+    return ElemPossedeListQuerry($idList)->fetch();
 }

@@ -24,15 +24,27 @@ class Utilisateur{
         createNewUser($nameUser,$pw,$mail,$tel);
     }
 
-    public function verifSupp($nameList,$idUser){
+    public function exist($nameUser){
+        if(infoUserAjoutList($nameUser)) return true ;
+        else return false;
+    }
+
+    /*public function verifSupp($nameList,$idUser){
         $annexe = infoList($nameList);
         $idlist = $annexe["idList"];
         $annexe2 = checkAccess($idUser,$idlist);
         return $annexe2["roleAcces"];
-    }
+    }*/
 
     public function allListQuerry($idUser){
         return ListPossedeUserQuerry($idUser);
+    }
+
+    public function listeRole($idUser,$idList){
+        $info = checkAccess($idUser,$idList);
+        if ( $info["roleAcces"]== 'Proprietaire') return 1;
+        else if ($info["roleAcces"] == 'Collaborateur') return 0;
+        else return -1;
     }
 
     public function getName($idUser){

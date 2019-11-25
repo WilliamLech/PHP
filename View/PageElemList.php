@@ -17,7 +17,7 @@ if (isset($_POST['DescElem']) && isset($_POST['NomElem']) && isset($_POST["CreaE
         $descElem = $_POST['DescElem'];
         createElem($nomElem,$descElem,$idList);
     }
-}*/
+}
 
 if (isset($_POST['nomPerson']) && isset($_POST['AjoutPerson'])){
     $nameAjout = $_POST['nomPerson'];
@@ -28,11 +28,10 @@ if (isset($_POST['nomPerson']) && isset($_POST['AjoutPerson'])){
     } else {
         $msgError = "Cette personne n'existe pas";
     }
-}
+}*/
 ?>
 
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
     <link type="text/css" rel="stylesheet" href="PageElemList.css">
@@ -43,18 +42,19 @@ if (isset($_POST['nomPerson']) && isset($_POST['AjoutPerson'])){
 <div class="grid-container">
     <div class="categorie">
         <?php
-        echo("Il s'agit de la liste : ".$nameList."<br/>");
+        /*echo("Il s'agit de la liste : ".$nameList."<br/>");
         $annexe4 = checkAccess($idUser,$idList);
         if ($annexe4[roleAcces] == 'Proprietaire'){
-            echo("<br/><form method=\"post\" action=\"PageElemList.php\">
+            echo("<br/><form method=\"post\" action=\"index.php\">
             <input type=\"text\"  name=\"nomPerson\" size=\"40\"/><input type=\"submit\" name=\"AjoutPerson\" value=\"Ajouter une personne\">
             </form>");
-        }
-        echo $msgError;
+        }*/
+        gestionList();
+        echo $_SESSION["erreurPage"];
         ?>
     </div>
     <div class="ajout">
-        <form method="post" action="PageElemList.php">
+        <form method="post" action="index.php">
             Nom Element <input type="text"  name="NomElem" size="20" /><br/>
             Description <input type="text"  name="DescElem" size="20" /><br/>
             <input type="submit" name="CreaElem" value="Création d'un element">
@@ -62,18 +62,24 @@ if (isset($_POST['nomPerson']) && isset($_POST['AjoutPerson'])){
     </div>
     <div class="fiches">
         <?php
-        $result = ElemPossedeListQuerry($nameList);
+        /*$result = ElemPossedeListQuerry($nameList);
         if ($result != null){
             $n=1;
             foreach($result as $item){
                 echo("Element n°".$n." nommé ".$item[NomElem]." ajouté le ".$item[DateDElem]." dit :  ".$item[DescElem]."<br/>");
                 $n++;
             }
-        } else echo ("Pas d'element dans la liste.")
+        } else echo ("Pas d'element dans la liste.")*/
+        affElem();
         ?>
         <div class="blocListe"></div>
     </div>
-    <div class="footer"><a href="PageProfil.php" class="retour">Retour</a></div>
+    <div class="footer">
+        <!--<a href="index.php" class="retour">Retour</a>-->
+        <form method="post" action="index.php">
+            <input class="retour" type="submit" name="retour"  value="Retour">
+        </form>
+    </div>
 </div>
 </body>
 </html>

@@ -9,6 +9,10 @@ $elem= new Element();               //création d'un élément
 $user= new Utilisateur();           //création d'un utilisateur
 
 
+    if (empty($_POST)) { //si la table POST est vide
+        include_once('../View/PageAccueil.php'); //s'effectue au premier lancement de la page
+    }
+
     // Page d'Accueil //
     if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {       //vérifie si l'utilisateur est présent dans la base de données
         $pass = $_POST["config_pass"];

@@ -3,7 +3,9 @@ class Utilisateur extends CI_Controller{
 
     public function connexion($pass,$nameUser){             //fonction permettant à un utilisateur de se connecter
         try {
-            if ($annexe=infoUser($nameUser, $pass)) {
+			$this->load->model('Infoutilisateur');
+			$annexe= $this->Infoutilisateur->infoUser($nameUser, $pass);
+            if ($annexe) {
                 //on met l'idUser user en session pour facilement retrouver des info sur l'user
                 session_start();
                 $formId = filter_var($annexe["idUser"]);
@@ -19,16 +21,21 @@ class Utilisateur extends CI_Controller{
     }
 
     public function createUser($nameUser,$pw,$mail,$tel){           //fonction permettant de créer un utilisateur avec pour paramètres un nom, un mot de passe, un email et un numéro de téléphone
-        createNewUser($nameUser,$pw,$mail,$tel);
+		$this->load->model('Infoutilisateur');
+		$this->Infoutilisateur->createNewUser($nameUser,$pw,$mail,$tel);
     }
 
     public function exist($nameUser){               //fonction pour vérifier si le nom de l'utilisater existe dans la base de données
-        if(infoUserAjoutList($nameUser)) return true ;
+		$this->load->model('Infoutilisateur');
+		$annexe= $this->Infoutilisateur->infoUserAjoutList($nameUser);
+    	if($annexe) return true ;
         else return false;
     }
 
     public function allListQuerry($idUser){         //fonction permettant de récupérer toutes les informations des listes que l'utilisateur possède
-        return ListPossedeUserQuerry($idUser);
+		$this->load->model('Infoutilisateur');
+		$annexe= $this->Infoutilisateur->ListPossedeUserQuerry($idUser);
+    	return $annexe;
     }
 
     public function listeRole($idUser,$idList){                 //fonction permettant de vérifier l'accès que possède l'utilisateur sur une liste (propriétaire ou collaborateur)
@@ -40,27 +47,32 @@ class Utilisateur extends CI_Controller{
     }
 
     public function getName($idUser){           //fonction pour récupérer le nom de l'utilisateur
-        $info = AllinfoUser($idUser);
+		$this->load->model('Infoutilisateur');
+		$info= $this->Infoutilisateur->AllinfoUser($idUser);
         return $info["nameUser"];
     }
 
     public function getMail($idUser){           //fonction pour récupérer le mail de l'utilisateur
-        $info = AllinfoUser($idUser);
+		$this->load->model('Infoutilisateur');
+		$info= $this->Infoutilisateur->AllinfoUser($idUser);
         return $info["mailUser"];
     }
 
     public function getTel($idUser){            //fonction pour récupérer le numéro de téléphone de l'utilisateur
-        $info = AllinfoUser($idUser);
+		$this->load->model('Infoutilisateur');
+		$info= $this->Infoutilisateur->AllinfoUser($idUser);
         return $info["phoneUser"];
     }
 
     public function getNbreList($idUser){       //fonction pour récupérer le nombre de listes que l'utilisateur possède
-        $info = nbrListUser($idUser);
+		$this->load->model('Infoutilisateur');
+		$info= $this->Infoutilisateur->nbrListUser($idUser);
         return $info["nbrList"];
     }
 
     public function getId($nameUser){           //fonction pour récupérer l'id de l'utilisateur
-        $info = infoUserAjoutList($nameUser);
+		$this->load->model('Infoutilisateur');
+		$info= $this->Infoutilisateur->infoUserAjoutList($nameUser);
         return $info["idUser"];
     }
 }

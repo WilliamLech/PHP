@@ -115,7 +115,11 @@ class CI_DB_postgre_driver extends CI_DB {
 
 			/* An empty password is valid!
 			 *
+<<<<<<< HEAD
 			 * $db['password'] = NULL must be done in order to ignore it.
+=======
+			 * $infoacess['password'] = NULL must be done in order to ignore it.
+>>>>>>> c306075e0400caa2f46144533fd80970f9212734
 			 */
 			$this->password === NULL OR $this->dsn .= "password='".$this->password."' ";
 		}
@@ -174,7 +178,11 @@ class CI_DB_postgre_driver extends CI_DB {
 	/**
 	 * Reconnect
 	 *
+<<<<<<< HEAD
 	 * Keep / reestablish the db connection if no queries have been
+=======
+	 * Keep / reestablish the infoacess connection if no queries have been
+>>>>>>> c306075e0400caa2f46144533fd80970f9212734
 	 * sent for a length of time exceeding the server's idle timeout
 	 *
 	 * @return	void

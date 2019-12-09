@@ -1,0 +1,56 @@
+.grid-container { /* structure de la page (contenant principal) */
+    display: grid; /* structure de la page en grille (grid) */
+    height: auto; /* hauteur en fonction du contenu */
+    width: auto; /* largeur en fonction du contenu */
+    grid-template-areas: /* repartition des zones du grid */
+            'categorie categorie categorie categorie categorie ajout'
+            'fiches fiches fiches fiches fiches fiches'
+            'footer footer footer footer footer footer';
+    grid-gap: 1vh; /* taille de la marge entre chaque aire du grid */
+    grid-auto-rows: 15vh 71vh 10vh; /* tailles des 3 lignes du grid */
+}
+
+.retour { /* bouton retour */
+    text-decoration: none!important; /* empeche le soulignement du texte du lien */
+    padding: 7px; /* marge interne du bouton */
+    margin: 2vh; /* marge externe du bouton */
+    background-color: #2ecc71; /* couleur de fond du bouton */
+    border-radius: 5px; /* coins arrondis */
+    color: #FFFFFF; /* couleur du texte */
+}
+
+.retour:hover { /* lors du  survol du bouton retour */
+    background-color: #27ae60; /* couleur de fond change lors du survol */
+}
+
+.categorie { /* zone du titre de la liste + liste collaborateurs */
+    grid-area: categorie;
+    padding-top: 3vh; /* marge interne supérieure */
+    padding-left: 5vh; /* marge interne de gauche */
+    background-color: #2ecc71; /* couleur de fond de la zone */
+}
+
+.ajout { /* zone en haut a droite : ajout d'un element a la liste */
+    grid-area: ajout;
+    padding-top: 3vh; /* marge interne superieure */
+    padding-left: 3vh; /* marge interne gauche */
+    background-color: #808080; /* couleur de fond de la zone */
+}
+
+.fiches { /* zone du milieu de page : contenu de la liste */
+    grid-area: fiches;
+    padding: 5vh; /* marge interne */
+    background-color: #C0C0C0; /* couleur de fond de la zone */
+}
+
+.blocListe {
+    height: 10vh;
+    width: 10vh;
+    padding: 0.5em;
+}
+
+.footer { /* zone de bas de page */
+    padding: 3vh; /* marge interne */
+    grid-area: footer;
+    background-color: #27ae60; /* couleur de fond de la zone */
+}

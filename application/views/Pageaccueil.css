@@ -1,0 +1,35 @@
+body {
+    background-color: #ecf0f1; /* couleur du fond de la page */
+}
+
+.grid-container { /* structure de la page (contenant principal) */
+    display: grid; /* structure de la page en grille (grid) */
+    height: auto; /* hauteur en fonction du contenu */
+    width: auto; /* largeur en fonction du contenu */
+    grid-template-areas: /* repartition des zones du grid */
+            'header header header header header login'
+            'main main main main main main'
+            'footer footer footer footer footer footer';
+    grid-gap: 1vh; /* taille de la marge entre chaque aire du grid */
+    grid-template-rows: 15vh 70.5vh 10vh; /* tailles des 3 lignes du grid */
+}
+
+.top{
+    grid-area: header; /* zone en haut à gauche de la page */
+    background-color: #2ecc71; /* couleur de fond de la zone */
+}
+
+.login{
+    grid-area: login; /* zone en haut à droite de la page - login */
+}
+
+.main{
+    grid-area: main; /* zone du milieu de page */
+    padding: 10px; /* marge interne de la zone */
+    background-color: #C0C0C0; /* couleur de fond de la zone */
+}
+
+.footer{
+    grid-area: footer; /* zone de bas de page */
+    background-color: #27ae60; /* couleur de fond de la zone */
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link type="text/css" rel="stylesheet" href="Pageelemlist.css">          <!--liaison avec le css correspondant-->
+    <link type="text/css" rel="stylesheet" href="../../css/page_elemlist.css">          <!--liaison avec le css correspondant-->
     <meta charset="UTF-8">
     <title>Détails Liste</title>                  <!--nom de la page-->
 </head>
@@ -14,7 +14,7 @@
         ?>
     </div>
     <div class="ajout">
-        <form method="post" action="index.php">                 <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
+        <form method="post" action="indexe.php">                 <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
             Nom Element <input type="text"  name="NomElem" size="20" /><br/>            <!--formulaire permettant de rentrer le nom des éléments de la liste-->
             Description <input type="text"  name="DescElem" size="20" /><br/>           <!--formulaire permettant de rentrer la description des éléments de la liste-->
             <input type="submit" name="CreaElem" value="Création d'un element">         <!--bouton permettant d'ajouter l'élément dans la base de données-->
@@ -27,7 +27,7 @@
         <div class="blocListe"></div>
     </div>
     <div class="footer">
-        <form method="post" action="index.php">             <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
+        <form method="post" action="indexe.php">             <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
             <input class="retour" type="submit" name="retour"  value="Retour">          <!--bouton permettant de retourner à la page des listes-->
         </form>
     </div>

@@ -1,7 +1,7 @@
 <?php
-include_once('../Controller/Element.php');
-include_once('../Controller/Liste.php');
-include_once('../Controller/Utilisateur.php');
+include_once('../Controllers/Element.php');
+include_once('../Controllers/Liste.php');
+include_once('../Controllers/Utilisateur.php');
 
 session_start();                    //lancement de la session
 $listee= new Liste();               //création d'une liste
@@ -10,7 +10,7 @@ $user= new Utilisateur();           //création d'un utilisateur
 
 
     if (empty($_POST)) { //si la table POST est vide
-        include_once('../View/Pageaccueil.php'); //s'effectue au premier lancement de la page
+        include_once('../Views/page_accueil.php'); //s'effectue au premier lancement de la page
     }
 
     // Page d'Accueil //
@@ -22,11 +22,11 @@ $user= new Utilisateur();           //création d'un utilisateur
         if ($validate){         //envoie vers la page des listes
             $formErreurPageAccueil = filter_var("");
             $_SESSION["erreurPage"] = $formErreurPageAccueil;
-            include_once('../View/Pageprofil.php');
+            include_once('../Views/page_profil.php');
         } else {                //renvoie vers la page de connexion
             $formErreurPageAccueil = filter_var("Mauvaise information !");
             $_SESSION["erreurPage"] = $formErreurPageAccueil;
-            include_once('../View/Pageaccueil.php');
+            include_once('../Views/page_accueil.php');
         }
     }
 
@@ -36,12 +36,12 @@ $user= new Utilisateur();           //création d'un utilisateur
             $user -> createUser($_POST["userName"],$_POST["psw"],$_POST["mail"],$_POST["tel"]);
             $formErreurPageInscription = filter_var("");            //inscrit l'utilisateur dans la base de données
             $_SESSION["erreurPage"] = $formErreurPageInscription;
-            include_once('../View/Pageaccueil.php');
+            include_once('../Views/page_accueil.php');
         }
         else {                          //affichage d'un message préventif
             $formErreurPageInscription = filter_var("<br /> Erreur : veuillez renseigner tous les champs.");
             $_SESSION["erreurPage"] = $formErreurPageInscription;
-            include_once('../View/Pageinscription.php');
+            include_once('../Views/page_inscription.php');
         }
     }
 
@@ -63,7 +63,7 @@ $user= new Utilisateur();           //création d'un utilisateur
         //pour changer de page
         $formList = filter_var($listee->getId($_POST["list"]));
         $_SESSION["idList"] = $formList;
-        include_once('../View/Pageelemlist.php');
+        include_once('../Views/page_elemlist.php');
     }
 
     if (isset($_POST['SuppList']) && isset($_POST["list"])){            //vérifie si l'utilisateur peut supprimer une liste
@@ -77,7 +77,7 @@ $user= new Utilisateur();           //création d'un utilisateur
             $formErreurPageProfil = filter_var("Vous n'avez pas les droits");
             $_SESSION["erreurPage2"] = $formErreurPageProfil;
         }
-        include_once('../View/Pageprofil.php');
+        include_once('../Views/page_profil.php');
     }
 
     function affInfoProfilUser(){           //affiche le nom, l'email, le numéro de téléphone et le nombre de listes que l'utilisateur possède
@@ -98,7 +98,7 @@ $user= new Utilisateur();           //création d'un utilisateur
     // page Element liste //
     if (isset($_POST['DescElem']) && isset($_POST['NomElem']) && isset($_POST["CreaElem"])){            //vérifie que le nom, la description et l'appui sur le bouton sont vérifiés
         $elem-> newElem($_POST['NomElem'],$_POST['DescElem'],$_SESSION["idList"]);
-        include_once('../View/Pageelemlist.php');
+        include_once('../Views/page_elemlist.php');
     }
 
     if (isset($_POST['nomPerson']) && isset($_POST['AjoutPerson'])){                //vérifie si la personne ajoutée en collaboratrice existe dans la base de données
@@ -110,15 +110,14 @@ $user= new Utilisateur();           //création d'un utilisateur
             $formErreurPageElemList= filter_var("Cette personne n'existe pas");
             $_SESSION["erreurPage"] = $formErreurPageElemList;
         }
-        include_once('../View/Pageelemlist.php');
+        include_once('../Views/page_elemlist.php');
     }
 
     function gestionList(){                     //affiche le nom de la liste et le formulaire permettant d'ajouter une personne en collaboratrice
         echo("Il s'agit de la liste : ".$GLOBALS['listee']->getName($_SESSION["idList"])."<br/>");
         if ($GLOBALS['user']->listeRole($_SESSION["id_user"],$_SESSION["idList"]) == 1){
-            echo("<br/><form method=\"post\" action=\"index.php\">
-            <input type=\"text\"  name=\"nomPerson\" size=\"40\"/><input type=\"submit\" name=\"AjoutPerson\" value=\"Ajouter une personne\">
-            </form>");
+            echo(">
+            </form>\"");
         }
     }
 
@@ -132,5 +131,5 @@ $user= new Utilisateur();           //création d'un utilisateur
     }
 
     if (isset($_POST['retour'])){               //vérifie l'appui sur le bouton Retour pour ramener à la page de sélection des listes
-        include_once('../View/Pageprofil.php');
+        include_once('../Views/page_profil.php');
     }

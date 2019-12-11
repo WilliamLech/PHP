@@ -75,4 +75,8 @@ class Utilisateur extends CI_Controller{
 		$info= $this->Infoutilisateur->infoUserAjoutList($nameUser);
         return $info["idUser"];
     }
+
+    public function index(){
+    	$this->load->view('page_accueil');
+	}
 }

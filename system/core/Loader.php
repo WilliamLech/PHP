@@ -391,11 +391,8 @@ class CI_Loader {
 			return DB($params, $query_builder);
 		}
 
-<<<<<<< HEAD
+
 		// Initialize the db variable. Needed to prevent
-=======
-		// Initialize the infoacess variable. Needed to prevent
->>>>>>> c306075e0400caa2f46144533fd80970f9212734
 		// reference errors with some configurations
 		$CI->db = '';
 

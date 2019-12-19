@@ -1,7 +1,7 @@
 <?php
-include_once('../Controllers/Element.php');
-include_once('../Controllers/Liste.php');
-include_once('../Controllers/Utilisateur.php');
+$this->load->controller('Element');
+$this->load->controller('Liste');
+$this->load->controller('Utilisateur');
 
 session_start();                    //lancement de la session
 $listee= new Liste();               //création d'une liste

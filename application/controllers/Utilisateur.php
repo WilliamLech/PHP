@@ -77,6 +77,6 @@ class Utilisateur extends CI_Controller{
     }
 
     public function index(){
-    	$this->load->view('page_accueil');
+    	$this->load->view('indexe');
 	}
 }

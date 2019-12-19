@@ -5,7 +5,7 @@ $this->load->helper('url');
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<link rel="stylesheet" type="text/css" href="<? echo base_url();?>/css/page_accueil.css">
+	<link rel="stylesheet" type="text/css" href="<? echo base_url();?>/css/page_accueil.css">         <!--liaison avec le css correspondant-->
 	<!--liaison avec le css correspondant-->
     <meta charset="UTF-8">
     <title>Page d'accueil</title>           <!--nom de la page-->

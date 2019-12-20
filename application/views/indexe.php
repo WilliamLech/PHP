@@ -15,12 +15,8 @@ $elem= new Element();               //création d'un élément
 $user= new Utilisateur();           //création d'un utilisateur
 
 
-    if (empty($_POST)) { //si la table POST est vide
-		$this->load->view('page_accueil'); //s'effectue au premier lancement de la page
-    }
-
     // Page d'Accueil //
-    if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {       //vérifie si l'utilisateur est présent dans la base de données
+    /*if (isset($_POST["config_user"])  && isset($_POST["config_pass"] )) {       //vérifie si l'utilisateur est présent dans la base de données
         $pass = $_POST["config_pass"];
         $nameUser = $_POST["config_user"];
         $validate = $user->connexion($pass,$nameUser);
@@ -34,7 +30,7 @@ $user= new Utilisateur();           //création d'un utilisateur
             $_SESSION["erreurPage"] = $formErreurPageAccueil;
 			$this->load->view('page_accueil');
         }
-    }
+    }*/
 
     // Page d'inscription //
     if (isset($_POST["Inscription"])) {
@@ -87,7 +83,7 @@ $user= new Utilisateur();           //création d'un utilisateur
     }
 
     /// préférable de les mettre dans les view directement
-    function affInfoProfilUser(){           //affiche le nom, l'email, le numéro de téléphone et le nombre de listes que l'utilisateur possède
+    /*function affInfoProfilUser(){           //affiche le nom, l'email, le numéro de téléphone et le nombre de listes que l'utilisateur possède
         echo ("Nom d'utilisateur : ".$GLOBALS['user']->getName($_SESSION["id_user"])."<br/>
                 E-mail : ".$GLOBALS['user']->getMail($_SESSION["id_user"]) ."<br/>
                 Téléphone : ".$GLOBALS['user']->getTel($_SESSION["id_user"])."<br/>
@@ -100,7 +96,7 @@ $user= new Utilisateur();           //création d'un utilisateur
             echo("<input type=\"radio\" name=\"list\" value=\"$item[nameList]\"> $item[nameList]<br>");
         }
         $_SESSION["erreurPage2"];
-    }
+    }*/
 
     // page Element liste //
     if (isset($_POST['DescElem']) && isset($_POST['NomElem']) && isset($_POST["CreaElem"])){            //vérifie que le nom, la description et l'appui sur le bouton sont vérifiés
@@ -120,7 +116,7 @@ $user= new Utilisateur();           //création d'un utilisateur
 		$this->load->view('page_elemlist');
     }
 
-    function gestionList(){                     //affiche le nom de la liste et le formulaire permettant d'ajouter une personne en collaboratrice
+    /*function gestionList(){                     //affiche le nom de la liste et le formulaire permettant d'ajouter une personne en collaboratrice
         echo("Il s'agit de la liste : ".$GLOBALS['listee']->getName($_SESSION["idList"])."<br/>");
         if ($GLOBALS['user']->listeRole($_SESSION["id_user"],$_SESSION["idList"]) == 1){
             echo(">
@@ -135,7 +131,7 @@ $user= new Utilisateur();           //création d'un utilisateur
             $n++;
         }
         if ($n==1) echo ("Pas d'element dans la liste.");
-    }
+    }*/
 
     if (isset($_POST['retour'])){               //vérifie l'appui sur le bouton Retour pour ramener à la page de sélection des listes
 		$this->load->view('page_profil');

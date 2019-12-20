@@ -38,3 +38,25 @@ $this->load->helper('url');
 </div>
 </body>
 </html>
+
+
+<?php
+
+function gestionList(){                     //affiche le nom de la liste et le formulaire permettant d'ajouter une personne en collaboratrice
+	echo("Il s'agit de la liste : ".$GLOBALS['listee']->getName($_SESSION["idList"])."<br/>");
+	if ($GLOBALS['user']->listeRole($_SESSION["id_user"],$_SESSION["idList"]) == 1){
+		echo(">
+            </form>\"");
+	}
+}
+
+function affElem(){                 //affiche le détails des éléments des listes
+	$n=1;
+	foreach($GLOBALS['listee']->listElem($_SESSION["idList"]) as $item){
+		echo("Element n°".$n." nommé ".$item['NomElem']." ajouté le ".$item['DateDElem']." dit :  ".$item['DescElem']."<br/>");
+		$n++;
+	}
+	if ($n==1) echo ("Pas d'element dans la liste.");
+}
+
+?>

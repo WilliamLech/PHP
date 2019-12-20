@@ -76,7 +76,28 @@ class Utilisateur extends CI_Controller{
         return $info["idUser"];
     }
 
-    public function index(){
-    	$this->load->view('indexe');
+    // -----------------------------------------------------------------
+
+	public function index(){
+		$this->load->view('page_accueil');
+	}
+
+	public function verificationUser(){
+	$this->load->helper(array('form', 'url'));
+    if ($this->load->form_validation->run() == true) {       //vérifie si l'utilisateur est présent dans la base de données
+		$pass = $this->input->post('config_pass');
+		$nameUser = $this->input->post('config_user');
+        $validate = $this->connexion($pass,$nameUser);
+
+            if ($validate){         //envoie vers la page des listes
+           		 $formErreurPageAccueil = filter_var("");
+           		 $_SESSION["erreurPage"] = $formErreurPageAccueil;
+           		 $this->load->view('page_profil');
+            } else {                //renvoie vers la page de connexion
+            	$formErreurPageAccueil = filter_var("Mauvaise information !");
+				$_SESSION["erreurPage"] = $formErreurPageAccueil;
+				$this->load->view('page_accueil');
+            }
+		}
 	}
 }

@@ -33,3 +33,21 @@ $this->load->helper('url');
 </div>
 </body>
 </html>
+
+
+<?php
+function affInfoProfilUser(){           //affiche le nom, l'email, le numéro de téléphone et le nombre de listes que l'utilisateur possède
+	echo ("Nom d'utilisateur : ".$GLOBALS['user']->getName($_SESSION["id_user"])."<br/>
+                E-mail : ".$GLOBALS['user']->getMail($_SESSION["id_user"]) ."<br/>
+                Téléphone : ".$GLOBALS['user']->getTel($_SESSION["id_user"])."<br/>
+                Nombre de liste : ".$GLOBALS['user']->getNbreList($_SESSION["id_user"]));
+}
+
+function affList(){                     //affiche les noms des listes que possède l'utilisateur
+	$infoList = $GLOBALS['user']->allListQuerry($_SESSION["id_user"]);
+	foreach($infoList as $item){
+		echo("<input type=\"radio\" name=\"list\" value=\"$item[nameList]\"> $item[nameList]<br>");
+	}
+	$_SESSION["erreurPage2"];
+}
+?>

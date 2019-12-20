@@ -1,7 +1,11 @@
+<?php
+$this->load->helper('html');
+$this->load->helper('url');
+?>
 <!DOCTYPE html>
-<html lang = "fr">
+<html lang="fr">
 <head>
-    <link type="text/css" rel="stylesheet" href="../../css/page_inscription.css">          <!--liaison avec le css correspondant-->
+	<link rel="stylesheet" type="text/css" href="<? echo base_url();?>/css/page_inscription.css">          <!--liaison avec le css correspondant-->
     <meta charset="UTF-8">
     <title>Inscription</title>                  <!--nom de la page-->
 </head>

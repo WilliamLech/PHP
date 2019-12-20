@@ -1,5 +1,6 @@
 <?php
 $this->load->helper('html');
+$this->load->helper('form');
 $this->load->helper('url');
 ?>
 
@@ -16,7 +17,8 @@ $this->load->helper('url');
 <div class="grid-container">
     <div class="top"></div>
     <div class="login">
-			 <form method="post" action="application/controllers/Utilisateur.php">       <!--  envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
+		     <?php echo form_open('utilisateur/verificationUser'); ?>
+		<!--<form method="post" action="application/controllers/Utilisateur.php">         envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
                 Nom d'utilisateur : <label><input type="text" name="config_user" size="20" ></label><br>     <!--formulaire pour rentrer le nom d'utilisateur des listes-->
                 Mot de passe : <label><input type="password" name="config_pass" size="20" ></label><br>      <!--formulaire pour rentrer le mot de passe de l'utilisateur-->
                 <input type="submit" value="Valider">       <!--bouton pour vérifier si l'utilisateur est bien connecté avec son mot de passe-->

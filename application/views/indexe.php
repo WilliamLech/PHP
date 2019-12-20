@@ -4,7 +4,7 @@
 /// utiliser les helpers si on est perdu
 ///
 /// Ce fichier sera plustard enlevé
-
+/*
 $this->load->controller('Element');
 $this->load->helper('Liste');
 $this->load->helper('Utilisateur');
@@ -12,7 +12,7 @@ $this->load->helper('Utilisateur');
 session_start();                    //lancement de la session
 $listee= new Liste();               //création d'une liste
 $elem= new Element();               //création d'un élément
-$user= new Utilisateur();           //création d'un utilisateur
+$user= new Utilisateur();           //création d'un utilisateur*/
 
 
     // Page d'Accueil //

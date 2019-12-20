@@ -83,7 +83,9 @@ class Utilisateur extends CI_Controller{
 	}
 
 	public function verificationUser(){
-	$this->load->helper(array('form', 'url'));
+    	print_r($_POST);
+/*	$this->load->helper(array('form', 'url'));
+	$this->load->library('form_validation');
     if ($this->load->form_validation->run() == true) {       //vérifie si l'utilisateur est présent dans la base de données
 		$pass = $this->input->post('config_pass');
 		$nameUser = $this->input->post('config_user');
@@ -98,6 +100,6 @@ class Utilisateur extends CI_Controller{
 				$_SESSION["erreurPage"] = $formErreurPageAccueil;
 				$this->load->view('page_accueil');
             }
-		}
+		}*/
 	}
 }

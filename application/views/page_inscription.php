@@ -20,7 +20,7 @@ $this->load->helper('url');
             <input type="tel" name="tel" placeholder="Num. de téléphone"><br/><br/>         <!--formulaire pour rentrer le numéro de téléphone de la personne-->
             <input type="submit" name='Inscription' value="S'inscrire"><br/>                <!--bouton permettant de vérifier l'existence ou non du nom d'utilisateur afin de s'inscrire-->
             <?php
-                echo($_SESSION["erreurPage"]);          //affiche une erreur gérée par l'index lorsque tous les champs ne sont pas renseignés
+                //echo($_SESSION["erreurPage"]);          //affiche une erreur gérée par l'index lorsque tous les champs ne sont pas renseignés
             ?>
         </form>
     </div>

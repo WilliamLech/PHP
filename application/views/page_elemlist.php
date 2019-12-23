@@ -18,7 +18,7 @@ $this->load->helper('url');
         ?>
     </div>
     <div class="ajout">
-        <form method="post" action="indexe.php">                 <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
+		<?php echo form_open('element/addElem'); ?>                 <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
             Nom Element <input type="text"  name="NomElem" size="20" /><br/>            <!--formulaire permettant de rentrer le nom des éléments de la liste-->
             Description <input type="text"  name="DescElem" size="20" /><br/>           <!--formulaire permettant de rentrer la description des éléments de la liste-->
             <input type="submit" name="CreaElem" value="Création d'un element">         <!--bouton permettant d'ajouter l'élément dans la base de données-->
@@ -31,7 +31,7 @@ $this->load->helper('url');
         <div class="blocListe"></div>
     </div>
     <div class="footer">
-        <form method="post" action="indexe.php">             <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
+		<?php echo form_open('utilisateur/pageProfil'); ?>             <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
             <input class="retour" type="submit" name="retour"  value="Retour">          <!--bouton permettant de retourner à la page des listes-->
         </form>
     </div>
@@ -45,8 +45,9 @@ $this->load->helper('url');
 function gestionList(){                     //affiche le nom de la liste et le formulaire permettant d'ajouter une personne en collaboratrice
 	echo("Il s'agit de la liste : ".$GLOBALS['listee']->getName($_SESSION["idList"])."<br/>");
 	if ($GLOBALS['user']->listeRole($_SESSION["id_user"],$_SESSION["idList"]) == 1){
-		echo(">
-            </form>\"");
+		echo(form_open('liste/addMember').
+            " <input type=\"text\"  name=\"nomPerson\" size=\"40\"/><input type=\"submit\" name=\"AjoutPerson\" value=\"Ajouter une personne\">
+            </form>");
 	}
 }
 

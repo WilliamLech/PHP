@@ -83,14 +83,13 @@ class Utilisateur extends CI_Controller{
 	}
 
 	public function verificationUser(){
-    	print_r($_POST);
-/*	$this->load->helper(array('form', 'url'));
-	$this->load->library('form_validation');
-    if ($this->load->form_validation->run() == true) {       //vérifie si l'utilisateur est présent dans la base de données
-		$pass = $this->input->post('config_pass');
-		$nameUser = $this->input->post('config_user');
-        $validate = $this->connexion($pass,$nameUser);
-
+    	$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
+		if ($this->load->form_validation->run() == true) {
+			$pass = $this->input->post('config_pass');
+			$nameUser = $this->input->post('config_user');
+			session_start();
+			$validate = $this->connexion($pass,$nameUser);
             if ($validate){         //envoie vers la page des listes
            		 $formErreurPageAccueil = filter_var("");
            		 $_SESSION["erreurPage"] = $formErreurPageAccueil;
@@ -100,6 +99,35 @@ class Utilisateur extends CI_Controller{
 				$_SESSION["erreurPage"] = $formErreurPageAccueil;
 				$this->load->view('page_accueil');
             }
-		}*/
+		}
+	}
+
+	public function pageinscription(){
+		$this->load->view('page_inscription');
+	}
+
+	public function  pageProfil(){
+		$this->load->view('page_profil');
+	}
+
+	public function newUser(){
+		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
+		if ($this->load->form_validation->run() == true) {
+			$userName = $this->input->post('userName');
+			$psw = $this->input->post('psw');
+			$mail = $this->input->post('mail');
+			$tel = $this->input->post('tel');
+			session_start();
+			if ($userName!="" && $psw!="" && $mail!="" && $tel !="") {           //vérifie si tous les champs sont remplis
+				$this->createUser($userName,$psw,$mail,$tel);
+				$_SESSION["erreurPage"] = ""; //inscrit l'utilisateur dans la base de données
+				$this->load->view('page_accueil');
+			}
+			else {                          //affichage d'un message préventif
+				$_SESSION["erreurPage"] = "<br /> Erreur : veuillez renseigner tous les champs.";
+				$this->load->view('page_inscription');
+			}
+		}
 	}
 }

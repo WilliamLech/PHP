@@ -16,14 +16,15 @@ $this->load->helper('url');
         <?php affInfoProfilUser() ?>                            <!--appel d'une fonction permettant d'afficher les données de l'utilisateur (nom, email, numéro de téléphone et le nombre de listes qu'il possède-->
     </div>
     <div class="main">
-        <form method="post"  action="indexe.php">                <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
+		<?php echo form_open('liste/gestionList'); ?>                <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
             <?php affList() ?>                                  <!--appel d'une fonction permettant d'afficher les listes de l'utilisateur-->
             <br/>
             <input type="submit" name="SelectList" value="Valider">                     <!--bouton permettant d'accéder au contenu de la liste choisie au préalable-->
             <input type="submit" name="SuppList" value="Supprimer">                     <!--bouton permettant de supprimer une liste choisie au préalable-->
         </form>
         <br/><br/><br/>
-        <form method="post" action="indexe.php">                 <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
+
+		<?php echo form_open('liste/gestionList'); ?>                 <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
             Nom Liste <input type="text"  name="NameList" size="5" /><br/>              <!--formulaire permettant de créer une nouvelle liste avec un nom-->
             <?php echo $_SESSION["erreurPage"]."<br/>"?>                                <!--affiche une erreur gérée par l'index lorsqu'une liste portant le même nom est déjà disponible-->
             <input type="submit" name="CreaList" value="Création d'une liste">          <!--bouton permettant de créer la liste dans la base de données-->

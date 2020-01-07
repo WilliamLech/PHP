@@ -17,7 +17,7 @@ class Infoacess extends CI_Model {
 
 	function checkAccess($idUser,$idList){
 		$query = $this->db->select("SELECT roleAcces from ACCES Where idUser = '$idUser' AND idList = '$idList'",false);
-		return $query->row_array();
+		return $query->get()->row_array();
 	}
 
 }

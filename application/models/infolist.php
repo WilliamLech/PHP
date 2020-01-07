@@ -9,7 +9,7 @@ class Infolist extends CI_Model{
 
 	function nbrListName($namList){                     //fonction permettant de compter le nombre de listes que possède un utilisateur
 		$query = $this->db->select("SELECT count(idList) as nbreList from LIST Where nameList = '$namList'",false);
-		return $query->row_array();
+		return $query->get()->row_array();
 	}
 
 	function createNewList($namList){                   //fonction permettant de créer une liste
@@ -22,7 +22,7 @@ class Infolist extends CI_Model{
 
 	function infoList($idList){                         //fonction permettant de récupérer toutes les informations des listes
 		$query = $this->db->select("SELECT * from LIST Where idList = '$idList'",false);
-		return $query->row_array();
+		return $query->get()->row_array();
 	}
 
 	function searchId($nameList){//fonction permettant de récupérer l'id d'une liste grâce à son nom

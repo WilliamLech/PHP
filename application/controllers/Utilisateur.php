@@ -7,7 +7,7 @@ class Utilisateur extends CI_Controller{
 			$annexe= $this->Infoutilisateur->infoUser($nameUser, $pass);
             if ($annexe) {
                 //on met l'idUser user en session pour facilement retrouver des info sur l'user
-                session_start();
+                // session_start();
                 $formId = filter_var($annexe["idUser"]);
                 $_SESSION["id_user"] = $formId;
                 return true;
@@ -67,7 +67,7 @@ class Utilisateur extends CI_Controller{
     public function getNbreList($idUser){       //fonction pour récupérer le nombre de listes que l'utilisateur possède
 		$this->load->model('Infoutilisateur');
 		$info= $this->Infoutilisateur->nbrListUser($idUser);
-        return $info["nbrList"];
+        return $info;
     }
 
     public function getId($nameUser){           //fonction pour récupérer l'id de l'utilisateur
@@ -85,7 +85,7 @@ class Utilisateur extends CI_Controller{
 	public function verificationUser(){
     	$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
-		if ($this->load->form_validation->run() == true) {
+		if (!is_null($this->input->post('config_pass')) && !is_null($this->input->post('config_user'))) {
 			$pass = $this->input->post('config_pass');
 			$nameUser = $this->input->post('config_user');
 			session_start();
@@ -93,7 +93,11 @@ class Utilisateur extends CI_Controller{
             if ($validate){         //envoie vers la page des listes
            		 $formErreurPageAccueil = filter_var("");
            		 $_SESSION["erreurPage"] = $formErreurPageAccueil;
-           		 $this->load->view('page_profil');
+				$this->load->model('infoutilisateur');
+				$idUser = $this->infoutilisateur->infoUser($nameUser, $pass);
+				$idUser = $idUser["idUser"];
+				$this->showPageProfil($idUser);
+           		 //$this->load->view('page_profil');
             } else {                //renvoie vers la page de connexion
             	$formErreurPageAccueil = filter_var("Mauvaise information !");
 				$_SESSION["erreurPage"] = $formErreurPageAccueil;
@@ -129,5 +133,21 @@ class Utilisateur extends CI_Controller{
 				$this->load->view('page_inscription');
 			}
 		}
+	}
+
+
+// ------------------------------------------------------
+
+	public function showPageProfil($id){
+
+		$this->load->model('infoutilisateur');
+		$reviews = $this->infoutilisateur->AllinfoUser($id);
+		$data['nameUser'] = $reviews['nameUser'];
+		$data['mailUser'] = $reviews['mailUser'];
+		$data['phoneUser'] = $reviews['phoneUser'];
+		$data['nbList'] = $this->getNbreList($id);
+		$data['listUser'] = $this->allListQuerry($id);
+		// var_dump($data);
+		$this->load->view('page_profil',$data);
 	}
 }

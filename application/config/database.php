@@ -79,17 +79,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-<<<<<<< HEAD
-	'hostname' => 'localhost',
-	'username' => '',
-	'password' => '',
-	'database' => '',
-=======
+
 	'hostname' => 'localhost:3307',
 	'username' => 'i180394',
 	'password' => 'bfd13dh',
 	'database' => 'INF2_M3104_G1',
->>>>>>> c306075e0400caa2f46144533fd80970f9212734
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

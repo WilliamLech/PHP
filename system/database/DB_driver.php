@@ -475,11 +475,7 @@ abstract class CI_DB_driver {
 	/**
 	 * Reconnect
 	 *
-<<<<<<< HEAD
 	 * Keep / reestablish the db connection if no queries have been
-=======
-	 * Keep / reestablish the infoacess connection if no queries have been
->>>>>>> c306075e0400caa2f46144533fd80970f9212734
 	 * sent for a length of time exceeding the server's idle timeout.
 	 *
 	 * This is just a dummy method to allow drivers without such
@@ -1692,11 +1688,7 @@ abstract class CI_DB_driver {
 			return TRUE;
 		}
 
-<<<<<<< HEAD
 		$this->CACHE = new CI_DB_Cache($this); // pass db object to support multiple db connections and returned db objects
-=======
-		$this->CACHE = new CI_DB_Cache($this); // pass infoacess object to support multiple infoacess connections and returned infoacess objects
->>>>>>> c306075e0400caa2f46144533fd80970f9212734
 		return TRUE;
 	}
 
@@ -1743,11 +1735,7 @@ abstract class CI_DB_driver {
 	public function display_error($error = '', $swap = '', $native = FALSE)
 	{
 		$LANG =& load_class('Lang', 'core');
-<<<<<<< HEAD
 		$LANG->load('db');
-=======
-		$LANG->load('infoacess');
->>>>>>> c306075e0400caa2f46144533fd80970f9212734
 
 		$heading = $LANG->line('db_error_heading');
 

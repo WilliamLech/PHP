@@ -30,7 +30,10 @@ $this->load->helper('url');
 		<?php
 		//	session_start();
         //  echo($_SESSION["erreurPage"]);          //affiche une erreur gérée par l'index lors d'une mauvaise rentrée d'identifiant et/ou de mot de passe
-        ?>
+        if ($erreur != null){
+        	echo($erreur);
+		}
+		?>
     </div>
     <div class="main"></div>
     <div class="footer"></div>

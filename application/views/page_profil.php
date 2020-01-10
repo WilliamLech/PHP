@@ -34,7 +34,11 @@ $this->load->helper('url');
 
 		<?php echo form_open('liste/gestionList'); ?>                 <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
             Nom Liste <input type="text"  name="NameList" size="5" /><br/>              <!--formulaire permettant de créer une nouvelle liste avec un nom-->
-            <?php echo $_SESSION["erreurPage"]."<br/>"?>                                <!--affiche une erreur gérée par l'index lorsqu'une liste portant le même nom est déjà disponible-->
+            <?php //echo $_SESSION["erreurPage"]."<br/>"
+			if ($erreur != null){
+				echo($erreur);
+			}
+			?>                                <!--affiche une erreur gérée par l'index lorsqu'une liste portant le même nom est déjà disponible-->
             <input type="submit" name="CreaList" value="Création d'une liste">          <!--bouton permettant de créer la liste dans la base de données-->
         </form>
     </div>

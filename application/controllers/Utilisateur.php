@@ -79,7 +79,9 @@ class Utilisateur extends CI_Controller{
     // -----------------------------------------------------------------
 
 	public function index(){
-		$this->load->view('page_accueil');
+		$erreur = null;
+		$this->showPageAccueil($erreur);
+		// $this->load->view('page_accueil');
 	}
 
 	public function verificationUser(){
@@ -91,33 +93,35 @@ class Utilisateur extends CI_Controller{
 			session_start();
 			$validate = $this->connexion($pass,$nameUser);
             if ($validate){         //envoie vers la page des listes
-           		 $formErreurPageAccueil = filter_var("");
-           		 $_SESSION["erreurPage"] = $formErreurPageAccueil;
 				$this->load->model('infoutilisateur');
 				$idUser = $this->infoutilisateur->infoUser($nameUser, $pass);
 				$idUser = $idUser["idUser"];
-				$this->showPageProfil($idUser);
+				$erreur = null;
+				$this->showPageProfil($idUser,$erreur);
            		 //$this->load->view('page_profil');
             } else {                //renvoie vers la page de connexion
-            	$formErreurPageAccueil = filter_var("Mauvaise information !");
+            	/*$formErreurPageAccueil = filter_var("Mauvaise information !");
 				$_SESSION["erreurPage"] = $formErreurPageAccueil;
-				$this->load->view('page_accueil');
+				$this->load->view('page_accueil');*/
+				$erreur = "Mauvaise information !";
+				$this->showPageAccueil($erreur);
             }
 		}
 	}
 
 	public function pageinscription(){
-		$this->load->view('page_inscription');
+		$erreur = null;
+		$this->showPageInscription($erreur);
 	}
 
-	public function  pageProfil(){
+	/*public function  pageProfil(){
 		$this->load->view('page_profil');
-	}
+	}*/
 
 	public function newUser(){
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
-		if ($this->load->form_validation->run() == true) {
+		//if (!is_null($this->input->post('userName')) && !is_null($this->input->post('psw')) && !is_null($this->input->post('mail')) && !is_null($this->input->post('tel'))) {
 			$userName = $this->input->post('userName');
 			$psw = $this->input->post('psw');
 			$mail = $this->input->post('mail');
@@ -125,29 +129,44 @@ class Utilisateur extends CI_Controller{
 			session_start();
 			if ($userName!="" && $psw!="" && $mail!="" && $tel !="") {           //vérifie si tous les champs sont remplis
 				$this->createUser($userName,$psw,$mail,$tel);
-				$_SESSION["erreurPage"] = ""; //inscrit l'utilisateur dans la base de données
-				$this->load->view('page_accueil');
+				/*$_SESSION["erreurPage"] = ""; //inscrit l'utilisateur dans la base de données
+				$this->load->view('page_accueil');*/
+				$erreur = null;
+				$this->showPageAccueil($erreur);
 			}
 			else {                          //affichage d'un message préventif
-				$_SESSION["erreurPage"] = "<br /> Erreur : veuillez renseigner tous les champs.";
-				$this->load->view('page_inscription');
+				/*$_SESSION["erreurPage"] = "<br /> Erreur : veuillez renseigner tous les champs.";
+				$this->load->view('page_inscription');*/
+				$erreur = "<br /> Erreur : veuillez renseigner tous les champs.";
+				$this->showPageInscription($erreur);
 			}
-		}
+		//}
 	}
 
-
 // ------------------------------------------------------
-
-	public function showPageProfil($id){
+	public function showPageProfil($id,$erreur){
 
 		$this->load->model('infoutilisateur');
 		$reviews = $this->infoutilisateur->AllinfoUser($id);
 		$data['nameUser'] = $reviews['nameUser'];
 		$data['mailUser'] = $reviews['mailUser'];
 		$data['phoneUser'] = $reviews['phoneUser'];
+		$data['erreur'] = $erreur;
 		$data['nbList'] = $this->getNbreList($id);
 		$data['listUser'] = $this->allListQuerry($id);
 		// var_dump($data);
 		$this->load->view('page_profil',$data);
 	}
+
+	public function showPageAccueil($erreur){
+		$data['erreur'] = $erreur;
+		$this->load->view('page_accueil',$data);
+	}
+
+	public function showPageInscription($erreur){
+		$data['erreur'] = $erreur;
+		$this->load->view('page_inscription',$data);
+	}
 }
+
+

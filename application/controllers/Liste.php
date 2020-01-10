@@ -49,7 +49,7 @@ class Liste extends CI_Controller{
 
 	// -----------------------------------------------------------------
 
-	public function gestionList(){
+	public function gestionList(){				//fonction pour gérer toutes les interactions avec les listes (création, suppression, vue des éléments)
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
 			session_start();
@@ -57,18 +57,14 @@ class Liste extends CI_Controller{
 				$nameList = $this->input->post('NameList');
 				if($this->verifDoublon($nameList)){               // vérifie qu'il n'y a pas deux listes en commun
 					$this->addList($nameList,$_SESSION["id_user"]);
-					//$_SESSION["erreurPage"] = "";
 					$this->showPageProfil(null,null);
 				} else {                //affichage d'un message en cas de doublon de liste
-					//$_SESSION["erreurPage"] = "Liste déjà existante";
 					$this->showPageProfil("Liste déjà existante",null);
 				}
-				//$this->load->view('page_profil');
 			}
 			else if (!is_null($this->input->post('SelectList'))){ // si le bouton SelectList a été appuyé
 				//pour changer de page
 				$_SESSION["idList"] = $this->getId($_POST["list"]);
-				//$this->load->view('page_elemlist');
 				$this->showPageElemList(null);
 			}
 			else if (!is_null($this->input->post('SuppList')) && !is_null($this->input->post('list'))){ // si le bouton SuppList a été appuyé
@@ -78,17 +74,14 @@ class Liste extends CI_Controller{
 				$infoUtilisateur = $this->infoacess->checkAccess($_SESSION["id_user"],$idList);
 				if ($infoUtilisateur["roleAcces"] == 'Proprietaire') {         //si l'utilisateur est propriétaire il peut supprimer
 					$this -> suppList($idList);
-					//$_SESSION["erreurPage2"] = "";
 					$this->showPageProfil(null,null);
 				} else {                //affiche un message si l'utilisateur est collaborateur
-					//$_SESSION["erreurPage2"] = "Vous n'avez pas les droits";
 					$this->showPageProfil(null,"Vous n'avez pas les droits");
 				}
-				//$this->load->view('page_profil');
 			}
 	}
 
-	public function addMember(){
+	public function addMember(){			//fonction pour ajouter un collaborateur à une liste
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
 		if (!is_null($this->input->post('nomPerson'))) { //vérifie si la personne ajoutée en collaboratrice existe dans la base de données
@@ -99,18 +92,15 @@ class Liste extends CI_Controller{
 			if (!is_null($infoUtilisateur)){
 				$this -> createAcces($infoUtilisateur["idUser"],$_SESSION["idList"],'Collaborateur');
 				$this->showPageElemList(null);
-				//$_SESSION["erreurPage"] = "";
 			} else {
-				//$_SESSION["erreurPage"] = "Cette personne n'existe pas";
 				$this->showPageElemList("Cette personne n'existe pas");
 			}
-			//$this->load->view('page_elemlist');
 		}
 	}
 
 	// -----------------------------------------------------------------
 
-	public function showPageProfil($erreur,$erreur2){
+	public function showPageProfil($erreur,$erreur2){			//envoi vers la page du profil de l'utilisateur en transmettant des données
 		$id = $_SESSION["id_user"];
 		$this->load->model('infoutilisateur');
 		$reviews = $this->infoutilisateur->AllinfoUser($id);
@@ -125,7 +115,7 @@ class Liste extends CI_Controller{
 		$this->load->view('page_profil',$data);
 	}
 
-	public function showPageElemList($erreur){
+	public function showPageElemList($erreur){		//envoi vers la page du profil des éléments de la liste de l'utilisateur en transmettant des données
 		$data['erreur'] = $erreur;
 		$data['erreur2'] = null;
 		$data['listElem'] = $this->listElem($_SESSION["idList"]);

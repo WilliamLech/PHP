@@ -16,10 +16,7 @@ class Infolist extends CI_Model{
 		$data = array(
 			'nameList' => $namList,
 		);
-		$this->db->insert('LIST',$data) ;   // "INSERT INTO LIST(nameList) VALUES ('$namList') ";
-		/*$this->db->truncate();
-		$sql = "INSERT INTO LIST(nameList) VALUES ('$namList') ";
-		$this->db->querry($sql);*/
+		$this->db->insert('LIST',$data) ;
 	}
 
 	function infoList($idList){                         //fonction permettant de récupérer toutes les informations des listes

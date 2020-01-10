@@ -8,7 +8,7 @@ class Element extends CI_Controller {
 
 	// -----------------------------------------------------------------
 
-	public function addElem(){
+	public function addElem(){					//fonction permettant la création d'un élément à une liste pour un utilisateur
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
 		if (!is_null($this->input->post('DescElem')) &&  !is_null($this->input->post('NomElem'))){ //vérifie que le nom, la description et l'appui sur le bouton sont vérifiés
@@ -17,13 +17,12 @@ class Element extends CI_Controller {
 			session_start();
 			$this-> newElem($nomElem,$descElem,$_SESSION["idList"]);
 			$this->showPageElemList();
-			//$this->load->view('page_elemlist');
 		}
 	}
 
 	// -----------------------------------------------------------------
 
-	public function showPageElemList(){
+	public function showPageElemList(){				//fonction permettant l'affichage des éléments
 		$data['erreur'] = null;
 		$data['erreur2'] = null;
 		$this->load->model('Infolist');

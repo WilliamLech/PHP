@@ -15,9 +15,9 @@ $this->load->helper('form');
     <div class="header"></div>
     <div class="profil">
 		<?php
-		$this->load->helper('directory'); //load directory helper
-		$dir = "images/"; // Your Path to folder
-		$map = directory_map($dir); /* This function reads the directory path specified in the first parameter and builds an array representation of it and all its contained files. */
+		$this->load->helper('directory'); //charge le dossier helper
+		$dir = "images/"; //chemin jusqu'au fichier
+		$map = directory_map($dir);
 		?>
 		<img src="<?php echo base_url($dir)."/user.png";?>" alt="" height="100"><br /><br />
 		<?php echo ("<span class=\"label\">Nom d'utilisateur</span><br />".$nameUser."<br/><br /> <!--affiche le nom, l'email, le numéro de téléphone et le nombre de listes que l'utilisateur possède -->
@@ -26,13 +26,12 @@ $this->load->helper('form');
                <span class=\"label\">Nombre de listes</span><br />".$nbList); ?>
 	</div>
     <div class="main">
-		<?php echo form_open('liste/gestionList'); ?>                <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
+		<?php echo form_open('liste/gestionList'); ?>                <!--envoi vers le controller liste pour exécuter la fonction gestionList-->
             <?php 	$infoList = $listUser;
 			foreach($infoList as $item){ //affiche les noms des listes que possède l'utilisateur
 				echo("<input type=\"radio\" name=\"list\" value=\"$item[nameList]\"> $item[nameList]<br>");
 			}
-			// $_SESSION["erreurPage2"];
-			if ($erreur2 != null){
+			if ($erreur2 != null){		//erreur liée à l'interaction faite avec une liste
 				echo($erreur2);
 			}
 			?>
@@ -42,13 +41,13 @@ $this->load->helper('form');
         </form>
         <br/><br/><br/>
 
-		<?php echo form_open('liste/gestionList'); ?>                 <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
+		<?php echo form_open('liste/gestionList'); ?>                 <!--envoi vers le controller liste pour exécuter la fonction gestionList-->
             <input type="text"  name="NameList" size="5" placeholder="Nom de la liste"/><br/>              <!--formulaire permettant de créer une nouvelle liste avec un nom-->
-            <?php //echo $_SESSION["erreurPage"]."<br/>"
-			if ($erreur != null){
+            <?php
+			if ($erreur != null){		//erreur liée à l'interaction faite avec une liste
 				echo($erreur."<br/>");
 			}
-			?>                                <!--affiche une erreur gérée par l'index lorsqu'une liste portant le même nom est déjà disponible-->
+			?>
             <input type="submit" name="CreaList" value="Créer la liste">          <!--bouton permettant de créer la liste dans la base de données-->
         </form>
     </div>

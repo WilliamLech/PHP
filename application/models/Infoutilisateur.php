@@ -38,10 +38,7 @@ class Infoutilisateur extends CI_Model {
 		$this->db->select('count(idList) as nombre');
 		$this->db->from('USER');
 		$this->db->join('ACCES', 'USER.idUser = ACCES.idUser');
-		//$this->db->join('ACCES', 'USER.idUser = ACCES.idUser');
 		$query = $this->db->where('USER.idUser', $idUser)->get();
-		//return $this->db->count_all($query);
-		//return $this->db->count_all_results();
 		return $query->row()->nombre;
 	}
 

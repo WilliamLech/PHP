@@ -7,7 +7,6 @@ class Utilisateur extends CI_Controller{
 			$annexe= $this->Infoutilisateur->infoUser($nameUser, $pass);
             if ($annexe) {
                 //on met l'idUser user en session pour facilement retrouver des info sur l'user
-                // session_start();
                 $formId = filter_var($annexe["idUser"]);
                 $_SESSION["id_user"] = $formId;
                 return true;
@@ -78,13 +77,12 @@ class Utilisateur extends CI_Controller{
 
     // -----------------------------------------------------------------
 
-	public function index(){
+	public function index(){			//fonction permettant d'appeler la fonction showPageAccueil en transmettant une erreur
 		$erreur = null;
 		$this->showPageAccueil($erreur);
-		// $this->load->view('page_accueil');
 	}
 
-	public function verificationUser(){
+	public function verificationUser(){			//fonction permettant de vérifier qu'un utilisateur est enregistré dans la BDD et appel de la fonction showPageProfil en transmettant l'id de l'utilisateur
     	$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
 		if (!is_null($this->input->post('config_pass')) && !is_null($this->input->post('config_user'))) {
@@ -97,47 +95,38 @@ class Utilisateur extends CI_Controller{
 				$idUser = $this->infoutilisateur->infoUser($nameUser, $pass);
 				$idUser = $idUser["idUser"];
 				$this->showPageProfil($idUser);
-           		 //$this->load->view('page_profil');
             } else {                //renvoie vers la page de connexion
-            	/*$formErreurPageAccueil = filter_var("Mauvaise information !");
-				$_SESSION["erreurPage"] = $formErreurPageAccueil;
-				$this->load->view('page_accueil');*/
 				$erreur = "Mauvaise information !";
 				$this->showPageAccueil($erreur);
             }
 		}
 	}
 
-	public function pageinscription(){
+	public function pageinscription(){			//fonction permettant d'appeler la fonction showPageInscription en transmettant une erreur
 		$erreur = null;
 		$this->showPageInscription($erreur);
 	}
 
-	public function  retourProfil(){
+	public function  retourProfil(){			//fonction permettant d'appeler la fonction showPageProfil en transmettant l'id de l'utilisateur
     	session_start();
 		$id = $_SESSION["id_user"];
 		$this->showPageProfil($id);
 	}
 
-	public function newUser(){
+	public function newUser(){			//fonction permettant de créer un nouvel utilisateur dans la BDD
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
-		//if (!is_null($this->input->post('userName')) && !is_null($this->input->post('psw')) && !is_null($this->input->post('mail')) && !is_null($this->input->post('tel'))) {
-			$userName = $this->input->post('userName');
+		$userName = $this->input->post('userName');
 			$psw = $this->input->post('psw');
 			$mail = $this->input->post('mail');
 			$tel = $this->input->post('tel');
 			session_start();
 			if ($userName !='' && $psw!='' && $mail!='' && $tel!='') {           //vérifie si tous les champs sont remplis
 				$this->createUser($userName,$psw,$mail,$tel);
-				/*$_SESSION["erreurPage"] = ""; //inscrit l'utilisateur dans la base de données
-				$this->load->view('page_accueil');*/
 				$erreur = null;
 				$this->showPageAccueil($erreur);
 			}
 			else {                          //affichage d'un message préventif
-				/*$_SESSION["erreurPage"] = "<br /> Erreur : veuillez renseigner tous les champs.";
-				$this->load->view('page_inscription');*/
 				$erreur = "<br /> Erreur : veuillez renseigner tous les champs.";
 				$this->showPageInscription($erreur);
 			}
@@ -145,7 +134,7 @@ class Utilisateur extends CI_Controller{
 	}
 
 // ------------------------------------------------------
-	public function showPageProfil($id){
+	public function showPageProfil($id){			//envoi vers la page du profil de l'utilisateur en transmettant des données
 		$this->load->model('infoutilisateur');
 		$reviews = $this->infoutilisateur->AllinfoUser($id);
 		$data['nameUser'] = $reviews['nameUser'];
@@ -158,12 +147,12 @@ class Utilisateur extends CI_Controller{
 		$this->load->view('page_profil',$data);
 	}
 
-	public function showPageAccueil($erreur){
+	public function showPageAccueil($erreur){		//envoi vers la page d'accueil en transmettant des données
 		$data['erreur'] = $erreur;
 		$this->load->view('page_accueil',$data);
 	}
 
-	public function showPageInscription($erreur){
+	public function showPageInscription($erreur){		//envoi vers la page d'inscription en transmettant des données
 		$data['erreur'] = $erreur;
 		$this->load->view('page_inscription',$data);
 	}

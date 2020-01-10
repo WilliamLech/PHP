@@ -13,8 +13,19 @@ $this->load->helper('url');
 <div class="grid-container">
     <div class="categorie">
         <?php
-        gestionList();                      //appel d'une fonction permettant d'ajouter un collaborateur à une liste
-        echo $_SESSION["erreurPage"];          //affiche une erreur gérée par l'index lorsque le nom du collaborateur n'existe pas dans la base de données
+		echo("Il s'agit de la liste : ".$nameList."<br/>");
+		$this->load->model('infoacess');
+		$infoUtilisateur = $this->infoacess->checkAccess($_SESSION["id_user"],$_SESSION["idList"]);
+		if ($infoUtilisateur["roleAcces"] == 'Proprietaire') {
+			echo(form_open('liste/addMember').
+				" <input type=\"text\"  name=\"nomPerson\" size=\"40\"/><input type=\"submit\" name=\"AjoutPerson\" value=\"Ajouter une personne\">
+            </form>");
+		}                    //appel d'une fonction permettant d'ajouter un collaborateur à une liste
+
+		//echo $_SESSION["erreurPage"];
+		if ($erreur != null){
+			echo($erreur."<br/>");
+		}         //affiche une erreur gérée par l'index lorsque le nom du collaborateur n'existe pas dans la base de données
         ?>
     </div>
     <div class="ajout">
@@ -26,7 +37,12 @@ $this->load->helper('url');
     </div>
     <div class="fiches">
         <?php
-        affElem();                          //appel d'une fonction permettant d'afficher les éléments de la liste
+			$n=1;
+			foreach($listElem as $item){
+				echo("Element n°".$n." nommé ".$item['NomElem']." ajouté le ".$item['DateDElem']." dit :  ".$item['DescElem']."<br/>");
+				$n++;
+			}
+			if ($n==1) echo ("Pas d'element dans la liste."); 	//appel d'une fonction permettant d'afficher les éléments de la liste
         ?>
         <div class="blocListe"></div>
     </div>
@@ -39,25 +55,3 @@ $this->load->helper('url');
 </body>
 </html>
 
-
-<?php
-
-function gestionList(){                     //affiche le nom de la liste et le formulaire permettant d'ajouter une personne en collaboratrice
-	echo("Il s'agit de la liste : ".$GLOBALS['listee']->getName($_SESSION["idList"])."<br/>");
-	if ($GLOBALS['user']->listeRole($_SESSION["id_user"],$_SESSION["idList"]) == 1){
-		echo(form_open('liste/addMember').
-            " <input type=\"text\"  name=\"nomPerson\" size=\"40\"/><input type=\"submit\" name=\"AjoutPerson\" value=\"Ajouter une personne\">
-            </form>");
-	}
-}
-
-function affElem(){                 //affiche le détails des éléments des listes
-	$n=1;
-	foreach($GLOBALS['listee']->listElem($_SESSION["idList"]) as $item){
-		echo("Element n°".$n." nommé ".$item['NomElem']." ajouté le ".$item['DateDElem']." dit :  ".$item['DescElem']."<br/>");
-		$n++;
-	}
-	if ($n==1) echo ("Pas d'element dans la liste.");
-}
-
-?>

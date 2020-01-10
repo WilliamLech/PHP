@@ -127,6 +127,8 @@ class Liste extends CI_Controller{
 	public function showPageElemList(){
 		$data['erreur'] = null;
 		$data['erreur2'] = null;
+		$data['listElem'] = $this->listElem($_SESSION["idList"]);
+		$data['nameList'] = $this->getName($_SESSION["idList"]);
 		$this->load->view('page_elemlist',$data);
 	}
 }

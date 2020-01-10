@@ -11,7 +11,6 @@ $this->load->helper('url');
     <title>Inscription</title>                  <!--nom de la page-->
 </head>
 <body>
-<a href="page_accueil.php" class="bouton">Retour</a>             <!--liaison avec la page d'accueil via un bouton-->
     <div class="inscription">
         <img src="../images/new-user.png" alt="inscription" height="70" /><br />            <!--liaison avec l'image présente sur la page-->
 		<?php echo form_open('utilisateur/newUser'); ?>               <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
@@ -28,6 +27,10 @@ $this->load->helper('url');
 			}
 			?>
 		</form>
+		<?php echo form_open('utilisateur/index'); ?>   <!--envoi vers la page d'inscription-->
+		<input type="submit" value="Retour">        <!--bouton pour s'inscrire dans la base de données-->
+		</form>
     </div>
+
 </body>
 </html>

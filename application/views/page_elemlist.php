@@ -1,6 +1,7 @@
 <?php
 $this->load->helper('html');
 $this->load->helper('url');
+$this->load->helper('form');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -14,9 +15,7 @@ $this->load->helper('url');
     <div class="categorie">
         <?php
 		echo("Il s'agit de la liste : ".$nameList."<br/>");
-		$this->load->model('infoacess');
-		$infoUtilisateur = $this->infoacess->checkAccess($_SESSION["id_user"],$_SESSION["idList"]);
-		if ($infoUtilisateur["roleAcces"] == 'Proprietaire') {
+		if ($roleAcces == 'Proprietaire') {
 			echo(form_open('liste/addMember').
 				" <input type=\"text\"  name=\"nomPerson\" size=\"40\"/><input type=\"submit\" name=\"AjoutPerson\" value=\"Ajouter une personne\">
             </form>");
@@ -38,7 +37,8 @@ $this->load->helper('url');
     <div class="fiches">
         <?php
 			$n=1;
-			foreach($listElem as $item){
+			$infoList = $listElem;
+			foreach($infoList as $item){
 				echo("Element n°".$n." nommé ".$item['NomElem']." ajouté le ".$item['DateDElem']." dit :  ".$item['DescElem']."<br/>");
 				$n++;
 			}
@@ -46,12 +46,12 @@ $this->load->helper('url');
         ?>
         <div class="blocListe"></div>
     </div>
+
     <div class="footer">
-		<?php echo form_open('utilisateur/pageProfil'); ?>             <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
-            <input class="retour" type="submit" name="retour"  value="Retour">          <!--bouton permettant de retourner à la page des listes-->
+		<?php echo form_open('utilisateur/retourProfil'); ?>             <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
+			<input type="submit" value="Retour">          <!--bouton permettant de retourner à la page des listes-->
         </form>
     </div>
 </div>
 </body>
 </html>
-

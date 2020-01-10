@@ -113,9 +113,11 @@ class Utilisateur extends CI_Controller{
 		$this->showPageInscription($erreur);
 	}
 
-	/*public function  pageProfil(){
-		$this->load->view('page_profil');
-	}*/
+	public function  retourProfil(){
+    	session_start();
+		$id = $_SESSION["id_user"];
+		$this->showPageProfil($id);
+	}
 
 	public function newUser(){
 		$this->load->helper(array('form', 'url'));
@@ -126,7 +128,7 @@ class Utilisateur extends CI_Controller{
 			$mail = $this->input->post('mail');
 			$tel = $this->input->post('tel');
 			session_start();
-			if (!is_null($userName) && !is_null($psw) && !is_null($mail) && !is_null($tel)) {           //vérifie si tous les champs sont remplis
+			if ($userName !='' && $psw!='' && $mail!='' && $tel!='') {           //vérifie si tous les champs sont remplis
 				$this->createUser($userName,$psw,$mail,$tel);
 				/*$_SESSION["erreurPage"] = ""; //inscrit l'utilisateur dans la base de données
 				$this->load->view('page_accueil');*/

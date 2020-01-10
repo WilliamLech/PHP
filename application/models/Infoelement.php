@@ -11,10 +11,10 @@ class Infoelement extends CI_Model{
 		$data = array(
 			'NomElem' => $nomElem,
 			'DescElem' => $descElem,
-			'DateDElem' => date(now()),
+			'DateDElem' => date('Y-m-d'),
 			'idList' =>  $idList
 		);
 		$this->db->insert('ELEMENT',$data) ;   // "INSERT INTO ELEMENT(NomElem,DescElem,DateDElem,idList) VALUES ('$nomElem','$descElem',date(now()),'$idList') ";
-		$this->db->truncate();
+		//$this->db->truncate();
 	}
 }

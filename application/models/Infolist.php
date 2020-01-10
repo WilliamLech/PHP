@@ -41,12 +41,8 @@ class Infolist extends CI_Model{
 	function ElemPossedeListQuerry($idList){            //fonction permettant de récupérer les éléments d'une liste
 		$this->db->select('*');
 		$this->db->from('ELEMENT');
-		$this->db->join('LIST');
-		 $querry = $this->db->where('idList',$idList);
-		return $querry;
-	}
-
-	function ElemPossedeList($idList){                  //fonction permettant de retourner le string de la fonction 'ElemPossedeListQuerry'
-		return ElemPossedeListQuerry($idList)->fetch()->get();
+		$this->db->join('LIST', 'LIST.idList = ELEMENT.idList');
+		 $querry = $this->db->where('ELEMENT.idList',$idList);
+		return $querry->get()->result_array();
 	}
 }

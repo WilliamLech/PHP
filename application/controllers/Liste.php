@@ -69,7 +69,7 @@ class Liste extends CI_Controller{
 				//pour changer de page
 				$_SESSION["idList"] = $this->getId($_POST["list"]);
 				//$this->load->view('page_elemlist');
-				$this->showPageElemList();
+				$this->showPageElemList(null);
 			}
 			else if (!is_null($this->input->post('SuppList')) && !is_null($this->input->post('list'))){ // si le bouton SuppList a été appuyé
 				$nameList = $this->input->post('list');
@@ -95,15 +95,16 @@ class Liste extends CI_Controller{
 			$nomPerson = $this->input->post('nomPerson');
 			$this->load->model('infoutilisateur');
 			$infoUtilisateur = $this->infoutilisateur->infoUserAjoutList($nomPerson);
-			$userExit = $this->Infoutilisateur->infoUserAjoutList($nomPerson);
 			session_start();
-			if ($userExit){
+			if (!is_null($infoUtilisateur)){
 				$this -> createAcces($infoUtilisateur["idUser"],$_SESSION["idList"],'Collaborateur');
-				$_SESSION["erreurPage"] = "";
+				$this->showPageElemList(null);
+				//$_SESSION["erreurPage"] = "";
 			} else {
-				$_SESSION["erreurPage"] = "Cette personne n'existe pas";
+				//$_SESSION["erreurPage"] = "Cette personne n'existe pas";
+				$this->showPageElemList("Cette personne n'existe pas");
 			}
-			$this->load->view('page_elemlist');
+			//$this->load->view('page_elemlist');
 		}
 	}
 
@@ -124,11 +125,16 @@ class Liste extends CI_Controller{
 		$this->load->view('page_profil',$data);
 	}
 
-	public function showPageElemList(){
-		$data['erreur'] = null;
+	public function showPageElemList($erreur){
+		$data['erreur'] = $erreur;
 		$data['erreur2'] = null;
 		$data['listElem'] = $this->listElem($_SESSION["idList"]);
 		$data['nameList'] = $this->getName($_SESSION["idList"]);
+
+		$this->load->model('infoacess');
+		$infoUtilisateur = $this->infoacess->checkAccess($_SESSION["id_user"],$_SESSION["idList"]);
+		$data['roleAcces'] = $infoUtilisateur["roleAcces"];
+
 		$this->load->view('page_elemlist',$data);
 	}
 }

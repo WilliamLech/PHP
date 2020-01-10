@@ -113,9 +113,21 @@ class Utilisateur extends CI_Controller{
 		$this->showPageInscription($erreur);
 	}
 
-	/*public function  pageProfil(){
-		$this->load->view('page_profil');
-	}*/
+	public function  pageProfil(){
+    	session_start();
+		$id = $_SESSION["id_user"];
+		$this->load->model('infoutilisateur');
+		$reviews = $this->infoutilisateur->AllinfoUser($id);
+		$data['nameUser'] = $reviews['nameUser'];
+		$data['mailUser'] = $reviews['mailUser'];
+		$data['phoneUser'] = $reviews['phoneUser'];
+		$data['erreur'] = null;
+		$data['erreur2'] = null;
+		$data['nbList'] =  $this->infoutilisateur->nbrListUser($id);
+		$data['listUser'] = $this->infoutilisateur->ListPossedeUserQuerry($id);
+
+		$this->load->view('page_profil',$data);
+	}
 
 	public function newUser(){
 		$this->load->helper(array('form', 'url'));

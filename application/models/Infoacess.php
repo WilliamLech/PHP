@@ -12,11 +12,11 @@ class Infoacess extends CI_Model {
 			'roleAcces' =>  $role
 		);
 		$this->db->insert('ACCES',$data) ;   //("INSERT INTO ACCES(idUser,idList,roleAcces) VALUES ('$iduser','$idlist','$role') ");
-		$this->db->truncate();
+		//$this->db->truncate();
 	}
 
 	function checkAccess($idUser,$idList){
-		$query = $this->db->select("SELECT roleAcces from ACCES Where idUser = '$idUser' AND idList = '$idList'",false);
+		$query = $this->db->select("roleAcces from ACCES Where idUser = '$idUser' AND idList = '$idList'",false);
 		return $query->get()->row_array();
 	}
 

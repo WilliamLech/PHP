@@ -8,7 +8,7 @@ class Infolist extends CI_Model{
 	}
 
 	function nbrListName($namList){                     //fonction permettant de compter le nombre de listes que possède un utilisateur
-		$query = $this->db->select("SELECT count(idList) as nbreList from LIST Where nameList = '$namList'",false);
+		$query = $this->db->select("count(idList) as nbreList from LIST Where nameList = '$namList'",false);
 		return $query->get()->row_array();
 	}
 
@@ -17,11 +17,13 @@ class Infolist extends CI_Model{
 			'nameList' => $namList,
 		);
 		$this->db->insert('LIST',$data) ;   // "INSERT INTO LIST(nameList) VALUES ('$namList') ";
-		$this->db->truncate();
+		/*$this->db->truncate();
+		$sql = "INSERT INTO LIST(nameList) VALUES ('$namList') ";
+		$this->db->querry($sql);*/
 	}
 
 	function infoList($idList){                         //fonction permettant de récupérer toutes les informations des listes
-		$query = $this->db->select("SELECT * from LIST Where idList = '$idList'",false);
+		$query = $this->db->select("* from LIST Where idList = '$idList'",false);
 		return $query->get()->row_array();
 	}
 
@@ -29,7 +31,7 @@ class Infolist extends CI_Model{
 		$this->db->select('*');
 		$this->db->from('LIST');
 		$this->db->where('nameList',$nameList);
-		return $this->db->get();
+		return $this->db->get()->row_array();
 	}
 
 	function SuppList($idlist){                         //fonction permettant de supprimer une liste via son id

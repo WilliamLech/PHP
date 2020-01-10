@@ -96,8 +96,7 @@ class Utilisateur extends CI_Controller{
 				$this->load->model('infoutilisateur');
 				$idUser = $this->infoutilisateur->infoUser($nameUser, $pass);
 				$idUser = $idUser["idUser"];
-				$erreur = null;
-				$this->showPageProfil($idUser,$erreur);
+				$this->showPageProfil($idUser);
            		 //$this->load->view('page_profil');
             } else {                //renvoie vers la page de connexion
             	/*$formErreurPageAccueil = filter_var("Mauvaise information !");
@@ -127,7 +126,7 @@ class Utilisateur extends CI_Controller{
 			$mail = $this->input->post('mail');
 			$tel = $this->input->post('tel');
 			session_start();
-			if ($userName!="" && $psw!="" && $mail!="" && $tel !="") {           //vérifie si tous les champs sont remplis
+			if (!is_null($userName) && !is_null($psw) && !is_null($mail) && !is_null($tel)) {           //vérifie si tous les champs sont remplis
 				$this->createUser($userName,$psw,$mail,$tel);
 				/*$_SESSION["erreurPage"] = ""; //inscrit l'utilisateur dans la base de données
 				$this->load->view('page_accueil');*/
@@ -144,17 +143,16 @@ class Utilisateur extends CI_Controller{
 	}
 
 // ------------------------------------------------------
-	public function showPageProfil($id,$erreur){
-
+	public function showPageProfil($id){
 		$this->load->model('infoutilisateur');
 		$reviews = $this->infoutilisateur->AllinfoUser($id);
 		$data['nameUser'] = $reviews['nameUser'];
 		$data['mailUser'] = $reviews['mailUser'];
 		$data['phoneUser'] = $reviews['phoneUser'];
-		$data['erreur'] = $erreur;
+		$data['erreur'] = null;
+		$data['erreur2'] = null;
 		$data['nbList'] = $this->getNbreList($id);
 		$data['listUser'] = $this->allListQuerry($id);
-		// var_dump($data);
 		$this->load->view('page_profil',$data);
 	}
 

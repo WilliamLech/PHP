@@ -1,6 +1,7 @@
 <?php
 $this->load->helper('html');
 $this->load->helper('url');
+$this->load->helper('form');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -10,20 +11,25 @@ $this->load->helper('url');
     <title>Inscription</title>                  <!--nom de la page-->
 </head>
 <body>
-<a href="page_accueil.php" class="bouton">Retour</a>             <!--liaison avec la page d'accueil via un bouton-->
+<!--<a href="page_accueil.php" class="bouton">Retour</a>    -->         <!--liaison avec la page d'accueil via un bouton-->
     <div class="inscription">
-        <img src="../images/new-user.png" alt="inscription" height="70" /><br />            <!--liaison avec l'image présente sur la page-->
+        <img src="application/images/new-user.png" alt="inscription" height="70" /><br />            <!--liaison avec l'image présente sur la page-->
 		<?php echo form_open('utilisateur/newUser'); ?>               <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
-            <input type="text" name="userName" placeholder="Nom d'utilisateur"><br/><br/>   <!--formulaire pour rentrer le nom d'utilisateur que la personne veut utiliser-->
-            <input type="password" name="psw" placeholder="Mot de passe"><br/><br/>         <!--formulaire pour rentrer le mot de passe que la personne veut utiliser-->
-            <input type="email" name="mail" placeholder="Adresse mail"><br/><br/>           <!--formulaire pour rentrer l'adresse mail de la personne-->
-            <input type="tel" name="tel" placeholder="Num. de téléphone"><br/><br/>         <!--formulaire pour rentrer le numéro de téléphone de la personne-->
-            <input type="submit" name='Inscription' value="S'inscrire"><br/>                <!--bouton permettant de vérifier l'existence ou non du nom d'utilisateur afin de s'inscrire-->
-            <?php
-				session_start();
-                echo($_SESSION["erreurPage"]);          //affiche une erreur gérée par l'index lorsque tous les champs ne sont pas renseignés
-            ?>
+		   <input type="text" name="userName" placeholder="Nom d'utilisateur"><br/><br/>   <!--formulaire pour rentrer le nom d'utilisateur que la personne veut utiliser-->
+		   <input type="password" name="psw" placeholder="Mot de passe"><br/><br/>         <!--formulaire pour rentrer le mot de passe que la personne veut utiliser-->
+		   <input type="email" name="mail" placeholder="Adresse mail"><br/><br/>           <!--formulaire pour rentrer l'adresse mail de la personne-->
+		   <input type="tel" name="tel" placeholder="Num. de téléphone"><br/><br/>         <!--formulaire pour rentrer le numéro de téléphone de la personne-->
+		   <input type="submit" name='Inscription' value="S'inscrire"><br/>                <!--bouton permettant de vérifier l'existence ou non du nom d'utilisateur afin de s'inscrire-->
+
+		</form>
+		<?php echo form_open('utilisateur/index'); ?>   <!--envoi vers la page d'inscription-->
+		<input type="submit" value="Retour">        <!--bouton pour s'inscrire dans la base de données-->
+		<?php
+		//session_start();
+		//echo($_SESSION["erreurPage"]);          //affiche une erreur gérée par l'index lorsque tous les champs ne sont pas renseignés
+		?>
         </form>
     </div>
+
 </body>
 </html>

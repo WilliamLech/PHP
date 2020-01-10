@@ -117,7 +117,7 @@ class Utilisateur extends CI_Controller{
 	public function newUser(){
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
-		if ($this->load->form_validation->run() == true) {
+		//if ($this->load->form_validation->run() == true) {
 			$userName = $this->input->post('userName');
 			$psw = $this->input->post('psw');
 			$mail = $this->input->post('mail');
@@ -132,7 +132,7 @@ class Utilisateur extends CI_Controller{
 				$_SESSION["erreurPage"] = "<br /> Erreur : veuillez renseigner tous les champs.";
 				$this->load->view('page_inscription');
 			}
-		}
+		//}
 	}
 
 

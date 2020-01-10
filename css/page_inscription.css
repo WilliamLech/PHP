@@ -1,60 +1,51 @@
 body { /* corps de la page web */
-    background-color: #ecf0f1; /* couleur de fond de la page */
-    padding-top: 5px; /* marge interne superieure de la page */
-    font-family: Arial; /* police du texte de la page */
+	background-color: #f7f1e3; /* couleur de fond de la page */
+	padding-top: 5px; /* marge interne superieure de la page */
+	font-family: Arial; /* police du texte de la page */
 }
 
 header { /* titre de la zone */
-    font-size: 25px; /* taille du texte de la zone en haut de la page */
-    font-family: Arial; /* police du texte de la zone */
-    text-transform: uppercase; /* transformation du titre en majuscules */
-    text-shadow: 2px 2px #27ae60; /* ombre du texte */
-}
-
-a.bouton { /* texte du lien*/
-    text-decoration: none!important; /* empeche le soulignement du lien */
-    padding: 7px; /* marge interne du lien */
-    background-color: #24a85b; /* couleur de fond du lien */
-    color: #FFFFFF; /* couleur du texte du lien*/
-}
-
-a.bouton:hover { /* lors du survol du bouton */
-    background-color: #1f9350; /* couleur de fond lors du survol */
+	font-size: xx-large; /* taille du texte de la zone en haut de la page */
+	margin: 10px 0px 20px 0px; /* marges exterieures en commencant par le haut */
+	font-family: Arial; /* police du texte de la zone */
+	text-transform: uppercase; /* transformation du titre en majuscules */
 }
 
 input[type=text], input[type=password], input[type=tel], input[type=email] { /* zones input de la page de type text, password, tel et email (entrées de texte) */
-    padding: 7px; /* marge interne */
-    border: 0 none; /* aucune bordure */
-    border-radius: 5px; /* coins arrondis */
-    width: 200px; /* largeur */
+	padding: 7px; /* marge interne */
+	border: 0 none; /* aucune bordure */
+	border-radius: 5px; /* coins arrondis */
+	width: 80%; /* largeur */
+	font-size: larger; /* taille de la police */
 }
 
 input[type=submit] { /* zones input de type submit (boutons) */
-    border: 0 none; /* aucune border */
-    cursor:pointer; /* curseur pointeur */
-    border-radius: 5px; /* coins arrondis */
-    font-size: medium; /* taille du texte moyenne */
-    padding: 7px; /* marge interne */
-    width: 214px; /* largeur */
-    background-color: #24a85b; /* couleur de fond */
-    color: #FFFFFF; /* couleur du texte */
-    margin-top: 1vh; /* marge interne superieure */
+	border: 0 none; /* aucune border */
+	cursor:pointer; /* curseur pointeur */
+	border-radius: 5px; /* coins arrondis */
+	font-size: larger; /* taille du texte moyenne */
+	padding: 7px; /* marge interne */
+	width: 80%; /* largeur */
+	background-color: #cd6133; /* couleur de fond */
+	color: #FFFFFF; /* couleur du texte */
+	margin-top: 1vh; /* marge interne superieure */
 }
 
 input[type=submit]:hover { /* lors du survol du bouton */
-    background-color: #1f9350; /* couleur de fond lors du survol */
+	background-color: #af5832 ; /* couleur de fond lors du survol */
 }
 
 .inscription { /* div contenant les donnees pour s'inscrire */
-    margin: 20vh auto auto auto; /* marges exterieures en commencant par le haut */
-    background-color: #2ecc71; /* couleur de fond */
-    width: 20vw; /* largeur */
-    height: 45vh; /* hauteur */
-    color: #FFFFFF; /* couleur du texte */
-    padding: 10px; /* marge interne */
-    text-align: center; /* alignement du texte au centre */
+	margin: 20vh auto auto auto; /* marges exterieures en commencant par le haut */
+	background-color: #ff793f; /* couleur de fond */
+	width: 20vw; /* largeur */
+	height: auto; /* hauteur */
+	color: #FFFFFF; /* couleur du texte */
+	padding: 10px 10px 30px 10px; /* marge interne */
+	text-align: center; /* alignement du texte au centre */
 }
 
-.inscription > img { /* images dans la div inscription */
-    margin: 10px; /* marge interne */
+.inscription > img {
+	margin: 0px 0px 20px 0px; /* marges exterieures en commencant par le haut */
+	opacity: 0.25; /* opacité de la police */
 }

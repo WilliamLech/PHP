@@ -14,10 +14,16 @@ $this->load->helper('form');
 <div class="grid-container">
     <div class="header"></div>
     <div class="profil">
-        <?php echo ("Nom d'utilisateur : ".$nameUser."<br/> <!--affiche le nom, l'email, le numéro de téléphone et le nombre de listes que l'utilisateur possède -->
-                E-mail : ".$mailUser."<br/>
-                Téléphone : ".$phoneUser."<br/>
-                Nombre de liste : ".$nbList); ?>
+		<?php
+		$this->load->helper('directory'); //load directory helper
+		$dir = "images/"; // Your Path to folder
+		$map = directory_map($dir); /* This function reads the directory path specified in the first parameter and builds an array representation of it and all its contained files. */
+		?>
+		<img src="<?php echo base_url($dir)."/user.png";?>" alt="" height="100"><br /><br />
+		<?php echo ("<span class=\"label\">Nom d'utilisateur</span><br />".$nameUser."<br/><br /> <!--affiche le nom, l'email, le numéro de téléphone et le nombre de listes que l'utilisateur possède -->
+                <span class=\"label\">E-mail</span><br />".$mailUser."<br/><br />
+                <span class=\"label\">Téléphone</span><br />".$phoneUser."<br/><br />
+               <span class=\"label\">Nombre de listes</span><br />".$nbList); ?>
 	</div>
     <div class="main">
 		<?php echo form_open('liste/gestionList'); ?>                <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
@@ -37,13 +43,13 @@ $this->load->helper('form');
         <br/><br/><br/>
 
 		<?php echo form_open('liste/gestionList'); ?>                 <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
-            Nom Liste <input type="text"  name="NameList" size="5" /><br/>              <!--formulaire permettant de créer une nouvelle liste avec un nom-->
+            <input type="text"  name="NameList" size="5" placeholder="Nom de la liste"/><br/>              <!--formulaire permettant de créer une nouvelle liste avec un nom-->
             <?php //echo $_SESSION["erreurPage"]."<br/>"
 			if ($erreur != null){
 				echo($erreur."<br/>");
 			}
 			?>                                <!--affiche une erreur gérée par l'index lorsqu'une liste portant le même nom est déjà disponible-->
-            <input type="submit" name="CreaList" value="Création d'une liste">          <!--bouton permettant de créer la liste dans la base de données-->
+            <input type="submit" name="CreaList" value="Créer la liste">          <!--bouton permettant de créer la liste dans la base de données-->
         </form>
     </div>
     <div class="footer"></div>

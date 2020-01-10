@@ -1,35 +1,51 @@
 body {
-    background-color: #ecf0f1; /* couleur du fond de la page */
+	background-color: #f7f1e3; /* couleur de fond de la page */
+	padding-top: 5px; /* marge interne superieure de la page */
+	font-family: Arial; /* police du texte de la page */
 }
 
-.grid-container { /* structure de la page (contenant principal) */
-    display: grid; /* structure de la page en grille (grid) */
-    height: auto; /* hauteur en fonction du contenu */
-    width: auto; /* largeur en fonction du contenu */
-    grid-template-areas: /* repartition des zones du grid */
-            'header header header header header login'
-            'main main main main main main'
-            'footer footer footer footer footer footer';
-    grid-gap: 1vh; /* taille de la marge entre chaque aire du grid */
-    grid-template-rows: 15vh 70.5vh 10vh; /* tailles des 3 lignes du grid */
+header { /* titre de la zone */
+	font-size: xx-large; /* taille du texte de la zone en haut de la page */
+	margin: 10px 0px 20px 0px; /* marges externe, dans l'ordre : en haut, à droite, en bas, à gauche*/
+	font-family: Arial; /* police du texte de la zone */
+	text-transform: uppercase; /* transformation du titre en majuscules */
 }
 
-.top{
-    grid-area: header; /* zone en haut à gauche de la page */
-    background-color: #2ecc71; /* couleur de fond de la zone */
+input[type=text], input[type=password] { /* zones input de la page de type text, password, tel et email (entrées de texte) */
+	padding: 7px; /* marge interne */
+	border: 0 none; /* aucune bordure */
+	border-radius: 5px; /* coins arrondis */
+	width: 80%; /* largeur */
+	font-size: larger; /* taille de la police */
 }
 
-.login{
-    grid-area: login; /* zone en haut à droite de la page - login */
+input[type=submit] { /* zones input de type submit (boutons) */
+	border: 0 none; /* aucune border */
+	cursor:pointer; /* curseur pointeur */
+	border-radius: 5px; /* coins arrondis */
+	font-size: larger; /* taille du texte moyenne */
+	padding: 7px; /* marge interne */
+	width: 80%; /* largeur */
+	background-color: #cd6133; /* couleur de fond */
+	color: #FFFFFF; /* couleur du texte */
+	margin-top: 1vh; /* marge interne superieure */
 }
 
-.main{
-    grid-area: main; /* zone du milieu de page */
-    padding: 10px; /* marge interne de la zone */
-    background-color: #C0C0C0; /* couleur de fond de la zone */
+input[type=submit]:hover { /* lors du survol du bouton */
+	background-color: #af5832; /* couleur de fond lors du survol */
 }
 
-.footer{
-    grid-area: footer; /* zone de bas de page */
-    background-color: #27ae60; /* couleur de fond de la zone */
+.connexion { /* div contenant les donnees pour s'inscrire */
+	margin: 20vh auto auto auto; /* marges exterieures en commencant par le haut */
+	background-color: #ff793f; /* couleur de fond */
+	width: 20vw; /* largeur */
+	height: auto; /* hauteur */
+	color: #FFFFFF; /* couleur du texte */
+	padding: 10px 10px 30px 10px; /* marge interne */
+	text-align: center; /* alignement du texte au centre */
+}
+
+.connexion > img {
+	margin: 0px 0px 20px 0px; /* marges externe, dans l'ordre : en haut, à droite, en bas, à gauche*/
+	opacity: 0.25; /* opacité de l'image : 25% */
 }

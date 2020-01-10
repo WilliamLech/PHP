@@ -1,41 +1,78 @@
 body {
-    background-color: #ecf0f1; /* couleur de fond de la page */
+	background-color: #f7f1e3; /* couleur de fond de la page */
+	font-family: Arial;
 }
 
+input[type=submit] { /* zones input de type submit (boutons) */
+	border: 0 none; /* aucune border */
+	cursor:pointer; /* curseur pointeur */
+	border-radius: 5px; /* coins arrondis */
+	font-size: larger; /* taille du texte moyenne */
+	padding: 7px; /* marge interne */
+	width: 10vw; /* largeur */
+	background-color: #cd6133; /* couleur de fond */
+	color: #FFFFFF; /* couleur du texte */
+	margin-top: 1vh; /* marge interne superieure */
+}
+
+input[type=submit]:hover { /* lors du survol du bouton */
+	background-color: #af5832; /* couleur de fond lors du survol */
+}
+
+input[type=text] { /* zones input de la page de type text, password, tel et email (entrées de texte) */
+	 padding: 7px; /* marge interne */
+	 border: 0 none; /* aucune bordure */
+	 border-radius: 5px; /* coins arrondis */
+	 width: 19.5vw; /* largeur */
+	 font-size: larger;
+ }
+
 .grid-container { /* structure de la page (contenant principal) */
-    display: grid; /* structure de la page en grille (grid) */
-    height: auto; /* hauteur en fonction du contenu */
-    width: auto; /* largeur en fonction du contenu */
-    grid-template-areas: /* repartition des zones du grid */
-            'header header header header header header'
-            'profil main main main main main'
-            'footer footer footer footer footer footer';
-    grid-gap: 1vh; /* taille de la marge entre chaque aire du grid */
-    grid-auto-rows: 15vh 70.5vh 10vh; /* tailles des 3 lignes du grid */
+	display: grid; /* structure de la page en grille (grid) */
+	height: auto; /* hauteur en fonction du contenu */
+	width: auto; /* largeur en fonction du contenu */
+	grid-template-areas: /* repartition des zones du grid */
+		'header header header header header header'
+		'profil main main main main main'
+		'footer footer footer footer footer footer';
+	grid-gap: 1vh; /* taille de la marge entre chaque aire du grid */
+	grid-auto-rows: 15vh 70.5vh 10vh; /* tailles des 3 lignes du grid */
 }
 
 .header { /* zone en haut de la page */
-    grid-area: header;
-    background-color: #2ecc71; /* couleur du fond de la zone */
+	grid-area: header;
+	background-color: #d1ccc0; /* couleur du fond de la zone */
 }
 
 
 .main {
-    grid-area: main; /* zone au milieu à droite de la page */
-    padding: 10px; /* marge interne de la zone */
-    background-color: #C0C0C0; /* couleur de fond de la zone */
-    overflow: auto; /* apparition d'une barre de defilement si trop de contenu */
+	grid-area: main; /* zone au milieu à droite de la page */
+	padding: 30px; /* marge interne de la zone */
+	background-color: #ff793f; /* couleur de fond de la zone */
+	color: #f7f1e3; /* couleur de la police */
+	overflow: auto; /* apparition d'une barre de defilement si trop de contenu */
 }
 
 .profil {
-    grid-area: profil; /* zone  à gauche de la page*/
-    padding-top: 3vh; /* marge interne superieure */
-    padding-left: 3vh; /* marge interne gauche */
-    background-color: #808080; /* couleur de fond de la zone */
+	grid-area: profil; /* zone  à gauche de la page*/
+	color: rgba(0, 0, 0, 0.65); /* couleur de la police */
+	background-color: #aaa69d; /* couleur de fond de la zone */
+	padding-top: 5vh; /* marge interne supérieure */
+	text-align: center; /* alignement centré du texte */
+	font-size: larger; /* taille de la police */
+	font-family: Arial; /* police de caractère */
+}
+
+.profil > img {
+	opacity: 0.60; /* opacité de l'image : 60% */
+}
+
+.label {
+	font-weight: bold; /* style de police en gras */
 }
 
 .footer {
-    grid-area: footer; /* zone en bas de la page */
-    height: 10vh; /* hauteur de la zone */
-    background-color: #27ae60; /* couleur de fond de la zone */
+	grid-area: footer; /* zone en bas de la page */
+	height: 10vh; /* hauteur de la zone */
+	background-color: #d1ccc0; /* couleur de fond de la zone */
 }

@@ -1,3 +1,34 @@
+body { /* corps de la page web */
+	background-color: #f7f1e3; /* couleur de fond de la page */
+	font-family: Arial; /* police du texte de la page */
+}
+
+input[type=submit] { /* zones input de type submit (boutons) */
+	border: 0 none; /* aucune border */
+	cursor:pointer; /* curseur pointeur */
+	border-radius: 5px; /* coins arrondis */
+	font-size: large; /* taille du texte moyenne */
+	padding: 7px; /* marge interne */
+	width: 10vw; /* largeur */
+	background-color: #84817a; /* couleur de fond */
+	color: #FFFFFF; /* couleur du texte */
+	margin-top: 1vh; /* marge externe superieure */
+}
+
+input[type=submit]:hover { /* lors du survol du bouton */
+	background-color: #57544d; /* couleur de fond lors du survol */
+}
+
+input[type=text] { /* zones input de la page de type text, password, tel et email (entrées de texte) */
+	padding: 5px; /* marge interne */
+	border: 0 none; /* aucune bordure */
+	border-radius: 5px; /* coins arrondis */
+	width: 15vw; /* largeur */
+	font-size: large; /* taille de la police */
+	margin-bottom: 0.15vh; /* marge externe inférieure */
+	margin-right: 1vh; /* marge externe droite */
+}
+
 .grid-container { /* structure de la page (contenant principal) */
     display: grid; /* structure de la page en grille (grid) */
     height: auto; /* hauteur en fonction du contenu */
@@ -10,47 +41,36 @@
     grid-auto-rows: 15vh 71vh 10vh; /* tailles des 3 lignes du grid */
 }
 
-.retour { /* bouton retour */
-    text-decoration: none!important; /* empeche le soulignement du texte du lien */
-    padding: 7px; /* marge interne du bouton */
-    margin: 2vh; /* marge externe du bouton */
-    background-color: #2ecc71; /* couleur de fond du bouton */
-    border-radius: 5px; /* coins arrondis */
-    color: #FFFFFF; /* couleur du texte */
-}
-
-.retour:hover { /* lors du  survol du bouton retour */
-    background-color: #27ae60; /* couleur de fond change lors du survol */
-}
-
 .categorie { /* zone du titre de la liste + liste collaborateurs */
     grid-area: categorie;
     padding-top: 3vh; /* marge interne supérieure */
     padding-left: 5vh; /* marge interne de gauche */
-    background-color: #2ecc71; /* couleur de fond de la zone */
+	color: rgba(0, 0, 0, 0.75); /* couleur de la police */
+    background-color: #d1ccc0; /* couleur de fond de la zone */
 }
 
 .ajout { /* zone en haut a droite : ajout d'un element a la liste */
     grid-area: ajout;
-    padding-top: 3vh; /* marge interne superieure */
-    padding-left: 3vh; /* marge interne gauche */
-    background-color: #808080; /* couleur de fond de la zone */
+    padding-top: 2vh; /* marge interne superieure */
+    padding-left: 2vh; /* marge interne gauche */
+    background-color: #aaa69d; /* couleur de fond de la zone */
 }
 
 .fiches { /* zone du milieu de page : contenu de la liste */
     grid-area: fiches;
     padding: 5vh; /* marge interne */
-    background-color: #C0C0C0; /* couleur de fond de la zone */
+	color: #ffffff; /* couleur de la police */
+    background-color: #ff793f; /* couleur de fond de la zone */
 }
 
 .blocListe {
-    height: 10vh;
-    width: 10vh;
-    padding: 0.5em;
+    height: 10vh; /* hauteur du bloc de listes : égale à 10% de la hauteur du viewport */
+    width: 10vh; /* largeur du bloc de listes : égale à 10% de la largeur du viewport */
+    padding: 0.5em; /* marge interne */
 }
 
 .footer { /* zone de bas de page */
     padding: 3vh; /* marge interne */
     grid-area: footer;
-    background-color: #27ae60; /* couleur de fond de la zone */
+    background-color: #d1ccc0; /* couleur de fond de la zone */
 }

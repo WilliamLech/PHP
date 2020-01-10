@@ -29,9 +29,9 @@ $this->load->helper('form');
     </div>
     <div class="ajout">
 		<?php echo form_open('element/addElem'); ?>                 <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
-            Nom Element <input type="text"  name="NomElem" size="20" /><br/>            <!--formulaire permettant de rentrer le nom des éléments de la liste-->
-            Description <input type="text"  name="DescElem" size="20" /><br/>           <!--formulaire permettant de rentrer la description des éléments de la liste-->
-            <input type="submit" name="CreaElem" value="Création d'un element">         <!--bouton permettant d'ajouter l'élément dans la base de données-->
+            <input type="text"  name="NomElem" size="20" placeholder="Nom Element"/><br/>            <!--formulaire permettant de rentrer le nom des éléments de la liste-->
+            <input type="text"  name="DescElem" size="20" placeholder="Description"/><br/>           <!--formulaire permettant de rentrer la description des éléments de la liste-->
+            <input type="submit" name="CreaElem" value="Créer l'élément">         <!--bouton permettant d'ajouter l'élément dans la base de données-->
         </form>
     </div>
     <div class="fiches">
@@ -42,7 +42,7 @@ $this->load->helper('form');
 				echo("Element n°".$n." nommé ".$item['NomElem']." ajouté le ".$item['DateDElem']." dit :  ".$item['DescElem']."<br/>");
 				$n++;
 			}
-			if ($n==1) echo ("Pas d'element dans la liste."); 	//appel d'une fonction permettant d'afficher les éléments de la liste
+			if ($n==1) echo ("Aucun élément dans la liste."); 	//appel d'une fonction permettant d'afficher les éléments de la liste
         ?>
         <div class="blocListe"></div>
     </div>

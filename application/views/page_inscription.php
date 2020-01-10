@@ -12,7 +12,13 @@ $this->load->helper('url');
 </head>
 <body>
     <div class="inscription">
-        <img src="../images/new-user.png" alt="inscription" height="70" /><br />            <!--liaison avec l'image présente sur la page-->
+		<header>Inscription</header>
+		<?php
+		$this->load->helper('directory'); //load directory helper
+		$dir = "images/"; // Your Path to folder
+		$map = directory_map($dir); /* This function reads the directory path specified in the first parameter and builds an array representation of it and all its contained files. */
+		?>
+		<img src="<?php echo base_url($dir)."/user.png";?>" alt="" height="100">          <!--liaison avec l'image présente sur la page-->
 		<?php echo form_open('utilisateur/newUser'); ?>               <!--envoi vers l'index pour exécuter les différentes fonctions de l'index en lien avec la page-->
 			<input type="text" name="userName" placeholder="Nom d'utilisateur"><br/><br/>   <!--formulaire pour rentrer le nom d'utilisateur que la personne veut utiliser-->
 			<input type="password" name="psw" placeholder="Mot de passe"><br/><br/>         <!--formulaire pour rentrer le mot de passe que la personne veut utiliser-->
